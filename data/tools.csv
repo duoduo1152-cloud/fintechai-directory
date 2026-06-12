@@ -54,3 +54,66 @@ Monarch Money,https://www.monarchmoney.com,Personal Finance,Paid,"Household fina
 Rocket Money,https://www.rocketmoney.com,Personal Finance,Freemium,"Subscription cancellation, budgeting and bill negotiation with AI.",Consumers,pending
 Origin,https://www.useorigin.com,Personal Finance,Paid,"All-in-one money app: planning, investing, taxes with AI advisor.",Professionals,pending
 Copilot Money,https://copilot.money,Personal Finance,Paid,"AI-powered personal finance tracker for Apple ecosystem.",Consumers,pending
+Koyfin,https://www.koyfin.com,Research & Analysis,Freemium,"Market data and analytics terminal with AI-assisted charting and screening.",Investors / advisors,pending
+Bigdata.com (RavenPack),https://www.bigdata.com,Research & Analysis,Paid,"AI research workflows on top of RavenPack's news analytics and alternative data.",Quant / institutional researchers,pending
+Boosted.ai,https://www.boosted.ai,Research & Analysis,Enterprise,"Machine learning platform (Boosted Insights) for portfolio managers and analysts.",Asset managers,pending
+Reflexivity,https://www.reflexivity.com,Research & Analysis,Enterprise,"AI-powered visual reasoning and knowledge graph for institutional investors.",Hedge funds / PMs,pending
+Accern,https://accern.com,Research & Analysis,Enterprise,"No-code NLP platform extracting signals from financial text at scale.",Banks / asset managers,pending
+Auquan,https://www.auquan.com,Research & Analysis,Enterprise,"AI agents automating deep work for financial services: risk briefs, DDQs, monitoring.",Asset managers / banks,pending
+Finster AI,https://www.finster.ai,Research & Analysis,Enterprise,"AI agent for institutional-grade company research and financial workflows.",IB / asset managers,pending
+TrendSpider,https://trendspider.com,Trading & Quant,Paid,"Automated technical analysis platform with AI pattern recognition and backtesting.",Active traders,pending
+Alpaca,https://alpaca.markets,Trading & Quant,Usage-based,"Developer-first stock and crypto trading API with algorithmic trading support.",Developers / fintechs,pending
+LuxAlgo,https://www.luxalgo.com,Trading & Quant,Freemium,"AI-enhanced trading indicators and screeners on TradingView.",Retail traders,pending
+QuantRocket,https://www.quantrocket.com,Trading & Quant,Paid,"Python-based platform for researching and running algorithmic trading strategies.",Quant developers,pending
+Quantifind,https://www.quantifind.com,Risk & Compliance,Enterprise,"AI risk intelligence for AML investigations and sanctions screening.",Banks / fincrime teams,pending
+Lucinity,https://lucinity.com,Risk & Compliance,Enterprise,"AI copilot (Luci) for financial crime investigations and case management.",Compliance teams,pending
+Flagright,https://www.flagright.com,Risk & Compliance,Paid,"AI-native transaction monitoring and AML compliance for fintechs.",Fintech risk teams,pending
+Alloy,https://www.alloy.com,Risk & Compliance,Enterprise,"Identity decisioning platform orchestrating KYC, fraud and credit risk data.",Banks / fintechs,pending
+Socure,https://www.socure.com,Risk & Compliance,Enterprise,"AI identity verification and fraud prediction platform.",Fintechs / agencies,pending
+SymphonyAI Sensa,https://www.symphonyai.com/financial-services/,Risk & Compliance,Enterprise,"AI financial crime detection suite for banks (Sensa-NetReveal).",Banks,pending
+Resistant AI,https://resistant.ai,Risk & Compliance,Enterprise,"Document forgery detection and transaction protection using AI.",Fintechs / lenders,pending
+Hawk,https://hawk.ai,Risk & Compliance,Enterprise,"AI-powered AML transaction monitoring and fraud prevention.",Banks / PSPs,pending
+Chainalysis,https://www.chainalysis.com,Risk & Compliance,Enterprise,"Blockchain intelligence and crypto AML/compliance analytics.",Exchanges / regulators / banks,pending
+TRM Labs,https://www.trmlabs.com,Risk & Compliance,Enterprise,"Blockchain intelligence for crypto fraud and financial crime detection.",Compliance / law enforcement,pending
+Elliptic,https://www.elliptic.co,Risk & Compliance,Enterprise,"Crypto asset risk management and blockchain analytics.",Banks / exchanges,pending
+Sift,https://sift.com,Risk & Compliance,Enterprise,"AI fraud decisioning platform for payments and account abuse.",E-commerce / fintechs,pending
+Forter,https://www.forter.com,Risk & Compliance,Enterprise,"Real-time e-commerce fraud prevention with identity intelligence.",Merchants / PSPs,pending
+Taktile,https://www.taktile.com,Credit & Lending,Enterprise,"Decision platform for building and testing credit risk workflows with AI.",Lenders / fintechs,pending
+Pagaya,https://pagaya.com,Credit & Lending,Enterprise,"AI network expanding credit access via lender partnerships and ABS funding.",Lenders / institutions,pending
+Oscilar,https://oscilar.com,Credit & Lending,Enterprise,"AI risk decisioning for credit, fraud and compliance without code.",Fintech risk teams,pending
+Vise,https://vise.com,Wealth Management,Enterprise,"AI-driven personalized portfolio management for financial advisors.",RIAs / advisors,pending
+TIFIN,https://tifin.com,Wealth Management,Enterprise,"AI platform ecosystem for wealth: distribution, advice and engagement.",Wealth firms,pending
+FP Alpha,https://fpalpha.com,Wealth Management,Paid,"AI extracts planning insights from tax returns, wills and insurance docs.",Financial planners,pending
+Holistiplan,https://www.holistiplan.com,Wealth Management,Paid,"Tax return OCR and planning scenario software for advisors.",Financial planners,pending
+Zocks,https://www.zocks.io,Wealth Management,Paid,"AI meeting assistant turning client conversations into notes and tasks for advisors.",Financial advisors,pending
+Jump,https://jumpapp.com,Wealth Management,Paid,"AI assistant automating advisor meeting prep, notes and compliance documentation.",Financial advisors,pending
+Powder,https://powderfi.com,Wealth Management,Enterprise,"AI agents for wealth firms: prospecting docs, portfolio extraction, proposals.",RIAs / wealth firms,pending
+Runway,https://runway.com,FP&A & Accounting,Paid,"Modern business planning platform with AI scenario modeling.",Startups / finance teams,pending
+Abacum,https://www.abacum.ai,FP&A & Accounting,Enterprise,"FP&A platform with AI insights for mid-market finance teams.",FP&A teams,pending
+Aleph,https://www.getaleph.com,FP&A & Accounting,Enterprise,"AI-powered FP&A connecting live data to spreadsheets and models.",Finance teams,pending
+Numeric,https://www.numeric.io,FP&A & Accounting,Paid,"AI-assisted accounting close management and flux analysis.",Accounting teams,pending
+Basis,https://www.getbasis.ai,FP&A & Accounting,Enterprise,"AI agents that execute accounting workflows end to end.",Accounting firms,pending
+Truewind,https://www.truewind.ai,FP&A & Accounting,Paid,"AI bookkeeping and finance back office for startups.",Startups,pending
+Fieldguide,https://www.fieldguide.io,FP&A & Accounting,Enterprise,"AI platform for audit and advisory engagements at CPA firms.",Audit firms,pending
+Concourse,https://www.concourse.co,FP&A & Accounting,Enterprise,"AI agents for corporate finance teams: analysis, reporting, Q&A.",Finance teams,pending
+Lemonade,https://www.lemonade.com,Insurance,Freemium,"AI-native insurer using bots (Maya/Jim) for instant quotes and claims.",Consumers,pending
+Tractable,https://tractable.ai,Insurance,Enterprise,"Computer vision AI assessing vehicle and property damage for claims.",Insurers,pending
+Shift Technology,https://www.shift-technology.com,Insurance,Enterprise,"AI decisioning for insurance fraud detection, claims and underwriting.",Insurers,pending
+Cytora,https://cytora.com,Insurance,Enterprise,"Digital risk processing platform for commercial insurance underwriting.",Commercial insurers,pending
+Sixfold,https://www.sixfold.ai,Insurance,Enterprise,"Generative AI risk analysis purpose-built for insurance underwriters.",Underwriters,pending
+Federato,https://www.federato.ai,Insurance,Enterprise,"RiskOps platform optimizing underwriting portfolios with AI.",P&C insurers,pending
+Gradient AI,https://www.gradientai.com,Insurance,Enterprise,"AI underwriting and claims analytics for group health and P&C.",Insurers,pending
+April,https://www.getapril.com,Tax,Enterprise,"Embedded AI-powered tax filing and planning APIs.",Fintechs / employers,pending
+Blue J,https://www.bluej.com,Tax,Paid,"Generative AI tax research delivering cited answers from authoritative sources.",Tax professionals,pending
+Black Ore,https://www.blackore.com,Tax,Enterprise,"AI automation for tax preparation at CPA firms (Tax Autopilot).",CPA firms,pending
+TaxGPT,https://www.taxgpt.com,Tax,Paid,"AI tax copilot answering questions and drafting memos for professionals.",Tax pros / firms,pending
+Ocrolus,https://www.ocrolus.com,Document Intelligence,Enterprise,"AI document analysis for lending: bank statements, paystubs, tax forms.",Lenders,pending
+Instabase,https://www.instabase.com,Document Intelligence,Enterprise,"AI hub for unstructured document understanding in regulated industries.",Banks / insurers,pending
+Eigen Technologies,https://www.eigentech.com,Document Intelligence,Enterprise,"No-code document AI extracting data from contracts and financial docs.",Banks / asset managers,pending
+Trovata,https://trovata.io,Treasury,Enterprise,"Automated cash management and forecasting platform with AI.",Corporate treasury,pending
+Nilus,https://www.nilus.com,Treasury,Paid,"AI-powered treasury and cash management for mid-market finance.",Treasury / CFO,pending
+Kyriba,https://www.kyriba.com,Treasury,Enterprise,"Enterprise liquidity platform with AI cash forecasting modules.",Corporate treasury,pending
+Glia,https://www.glia.com,Customer Service,Enterprise,"Unified interaction platform with AI for banks and credit unions.",Banks / credit unions,pending
+Eltropy,https://eltropy.com,Customer Service,Enterprise,"AI-powered digital conversations platform for community financial institutions.",Credit unions / banks,pending
+Albert,https://albert.com,Personal Finance,Paid,"All-in-one money app with automated budgeting, saving and investing.",Consumers,pending
+Bright Money,https://www.brightmoney.co,Personal Finance,Paid,"AI system building personalized plans to pay down credit card debt.",Consumers,pending
