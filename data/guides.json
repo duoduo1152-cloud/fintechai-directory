@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "sec-filing-analysis",
+    "title": "Best AI Tools for SEC Filing & Earnings Analysis",
+    "intro": "Reading 10-Ks, 10-Qs and earnings transcripts is where analysts burn the most hours. A new generation of AI tools can extract, summarize and cross-reference filings in seconds. We compared the leading options by accuracy, coverage, workflow fit and price — from a buy-side perspective.",
+    "updated": "2026-06",
+    "picks": [
+      { "tool": "fintool", "label": "Best for individual analysts", "verdict": "Purpose-built for SEC filings with citation-backed answers. The fastest way to interrogate a 10-K without enterprise procurement. Pricing is accessible for a single seat." },
+      { "tool": "hebbia", "label": "Best for institutions", "verdict": "Matrix handles hundreds of documents in parallel across data rooms and filings — the standard at large funds and banks, with a price tag and onboarding to match." },
+      { "tool": "alphasense", "label": "Best all-in-one research platform", "verdict": "Combines filings with broker research, expert calls and news in one search. Strongest content moat; best when your team already pays for research aggregation." },
+      { "tool": "daloopa", "label": "Best for model building", "verdict": "Doesn't summarize — it extracts every reported number with source links and pipes them into your Excel models. Complements, not replaces, the tools above." },
+      { "tool": "quartr", "label": "Best free starting point", "verdict": "Earnings call audio, slides and transcripts with AI summaries. The free tier is enough for following a personal coverage list." }
+    ],
+    "faq": [
+      { "q": "Can AI tools be trusted for filing analysis?", "a": "Use tools that cite their sources. Citation-backed answers (Fintool, Hebbia, AlphaSense) let you verify every claim against the underlying document — treat uncited AI output as a draft, never as a fact." },
+      { "q": "What does this category cost?", "a": "Individual tools run $30–$100/month. Institutional platforms like Hebbia and AlphaSense are typically five-figure annual contracts negotiated per seat." },
+      { "q": "Will these replace analysts?", "a": "No — they compress the extraction and first-read phase from hours to minutes. Judgment, modeling assumptions and thesis-building remain human work." }
+    ]
+  },
+  {
+    "slug": "financial-advisors",
+    "title": "Best AI Tools for Financial Advisors & Wealth Managers",
+    "intro": "Advisors lose 60-70% of their week to meeting notes, prep, planning paperwork and compliance documentation. AI tools now automate most of that back office. We evaluated the leading advisor-focused AI tools on workflow coverage, compliance posture and integration with existing CRM/planning stacks — written by someone who has worked in wealth management for over a decade.",
+    "updated": "2026-06",
+    "picks": [
+      { "tool": "zocks", "label": "Best AI meeting assistant", "verdict": "Turns client conversations into structured notes, tasks and CRM updates without recording awkwardness. Quick to adopt; clear privacy story." },
+      { "tool": "jump", "label": "Best for meeting prep + compliance docs", "verdict": "Strong end-to-end flow: pre-meeting brief, in-meeting capture, post-meeting summary and compliance-ready documentation pushed to your CRM." },
+      { "tool": "fp-alpha", "label": "Best for planning insights", "verdict": "Reads tax returns, estate docs and insurance policies, then surfaces concrete planning opportunities — the fastest way to demonstrate value beyond the portfolio." },
+      { "tool": "holistiplan", "label": "Best for tax-focused practices", "verdict": "The de facto standard for tax return scanning and scenario analysis in planning-led firms." },
+      { "tool": "powder", "label": "Best for prospecting & proposals", "verdict": "AI agents that parse prospect statements and generate proposals — shortens the sales cycle for RIAs competing on responsiveness." }
+    ],
+    "faq": [
+      { "q": "Are AI meeting tools compliant for regulated advisors?", "a": "The advisor-specific tools (Zocks, Jump) are built with books-and-records requirements in mind and integrate with archiving. Always confirm with your compliance officer and your firm's recording consent policy by state." },
+      { "q": "What should a solo advisor adopt first?", "a": "A meeting assistant. Notes and follow-ups are the highest-volume pain, the ROI is immediate, and adoption requires no workflow redesign." },
+      { "q": "Do clients react badly to AI in meetings?", "a": "Disclosure handled well actually signals professionalism. Most tools work from audio without a visible bot joining the call." }
+    ]
+  },
+  {
+    "slug": "aml-compliance",
+    "title": "Best AI Tools for AML & Financial Crime Compliance",
+    "intro": "False positives consume the majority of AML analyst time, and regulators now expect institutions to explain their models. We compared AI-native transaction monitoring, screening and investigation platforms on detection quality, explainability and deployment weight.",
+    "updated": "2026-06",
+    "picks": [
+      { "tool": "hawk", "label": "Best AI-native transaction monitoring", "verdict": "Machine learning on top of (or replacing) rules, with explainable alerts — a credible upgrade path for banks stuck on legacy rule engines." },
+      { "tool": "lucinity", "label": "Best investigator copilot", "verdict": "Luci summarizes cases, drafts SAR narratives and cuts investigation time dramatically. Buy it for analyst productivity rather than detection." },
+      { "tool": "flagright", "label": "Best for fintechs & startups", "verdict": "API-first, fast to integrate, priced for growing fintechs that need real monitoring without bank-grade procurement." },
+      { "tool": "complyadvantage", "label": "Best screening data", "verdict": "Strong AI-maintained sanctions, PEP and adverse media data — often the screening layer underneath other stacks." },
+      { "tool": "greenlite", "label": "Best for alert review automation", "verdict": "AI agents that work L1 alert queues like a trained analyst — measurable headcount leverage for high-volume programs." }
+    ],
+    "faq": [
+      { "q": "Will regulators accept AI-driven AML decisions?", "a": "Increasingly yes, with conditions: model governance, explainability and human oversight of final decisions. Pure black-box detection remains hard to defend in an exam." },
+      { "q": "Rules vs machine learning — which is safer?", "a": "Hybrid. Rules give you a defensible baseline; ML reduces false positives and catches patterns rules miss. Most credible vendors now ship both." },
+      { "q": "What's the realistic efficiency gain?", "a": "Vendors claim 50-70% false-positive reduction; independent benchmarks are scarcer. Pilot on your own historical alert data before believing any number." }
+    ]
+  },
+  {
+    "slug": "fpa-teams",
+    "title": "Best AI Tools for FP&A Teams",
+    "intro": "FP&A is moving from spreadsheet archaeology to AI-assisted planning: automated variance analysis, natural-language reporting and live data instead of stale exports. We compared the leading platforms by company size and Excel-dependency tolerance.",
+    "updated": "2026-06",
+    "picks": [
+      { "tool": "datarails", "label": "Best for Excel-heavy teams", "verdict": "Keeps your models in Excel and adds a consolidated database plus AI insights on top — the lowest-friction path for traditional finance teams." },
+      { "tool": "runway", "label": "Best for startups", "verdict": "Clean, modern planning with AI scenario modeling that founders actually open. Strongest design in the category." },
+      { "tool": "abacum", "label": "Best for mid-market", "verdict": "Solid planning workflows, collaboration and AI-generated insights aimed squarely at 100-1000 employee companies." },
+      { "tool": "aleph", "label": "Best live data layer", "verdict": "Syncs actuals into your existing models continuously — buy it when your problem is data freshness rather than planning process." },
+      { "tool": "concourse", "label": "Best AI agent approach", "verdict": "Agents that answer ad-hoc finance questions and draft reporting — early but pointing at where the category is heading." }
+    ],
+    "faq": [
+      { "q": "Should we leave Excel?", "a": "Probably not entirely — and the best tools no longer ask you to. The winning pattern is Excel as interface, platform as database and AI as the analyst layer." },
+      { "q": "What does FP&A software cost?", "a": "Startup-focused tools start around $1k-2k/month; mid-market platforms typically run $20k-60k/year depending on seats and integrations." },
+      { "q": "Where does AI actually help today?", "a": "Variance explanations, board-deck first drafts, and answering 'why did X move' questions instantly. Forecast accuracy gains are real but more modest than marketing suggests." }
+    ]
+  }
+]
