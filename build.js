@@ -110,6 +110,14 @@ footer{border-top:1px solid var(--border);padding:28px 0;margin-top:40px;font-si
   <nav><a href="/">Home</a><a href="/#categories">Categories</a><a href="/about/">About</a></nav>
 </div></header>
 ${body}
+<div style="background:#0f2a52;color:#fff;padding:40px 20px;text-align:center;">
+  <h2 style="font-size:20px;margin-bottom:6px;">Fintech AI Weekly</h2>
+  <p style="font-size:13.5px;opacity:.85;max-width:480px;margin:0 auto 16px;">New AI tools for finance, reviewed by a wealth-management insider. One email a week, no spam.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" target="_blank" style="display:flex;gap:8px;max-width:420px;margin:0 auto;">
+    <input type="email" name="email" required placeholder="you@work-email.com" style="flex:1;padding:11px 14px;border-radius:8px;border:none;font-size:14px;">
+    <button type="submit" style="background:#10b981;color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;">Subscribe</button>
+  </form>
+</div>
 <footer><div class="wrap">
   <p>${SITE.name} — ${SITE.tagline}</p>
   <p style="margin-top:6px;">© ${new Date().getFullYear()} fintechai.directory · Independently curated. Some links may be affiliate links.</p>
