@@ -152,6 +152,11 @@ out('index.html', layout({
   <h1>Find the Right AI Tool for Finance</h1>
   <p>${tools.length}+ AI tools for research, trading, risk, compliance and wealth management — curated and reviewed by finance professionals, not bots.</p>
   <div class="search"><input id="q" type="search" placeholder="Search ${tools.length} tools… (e.g. 'earnings analysis', 'fraud detection')"></div>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" target="_blank" style="display:flex;gap:8px;max-width:480px;margin:18px auto 0;">
+    <input type="email" name="email" required placeholder="Get new fintech AI tools weekly — your email" style="flex:1;padding:11px 14px;border-radius:8px;border:none;font-size:13.5px;">
+    <button type="submit" style="background:#10b981;color:#fff;border:none;padding:11px 18px;border-radius:8px;font-weight:600;font-size:13.5px;cursor:pointer;white-space:nowrap;">Subscribe</button>
+  </form>
+  <p style="font-size:11.5px;opacity:.7;margin-top:8px;">Join Fintech AI Weekly · one email per week · unsubscribe anytime</p>
 </div></div>
 <div class="wrap">
   <div class="section" id="categories"><h2>Browse by Category</h2>
@@ -237,6 +242,13 @@ for (const g of guides) {
     <p style="font-size:12.5px;color:var(--text2);">Pricing: ${esc(t.pricing)} · Best for: ${esc(t.target_users)}</p>
     <p style="margin-top:10px;"><a class="btn" style="padding:7px 16px;font-size:13px;" href="${esc(t.url)}" target="_blank" rel="noopener nofollow">Visit ${esc(t.name)} →</a> <a href="/tool/${t.slug}/" style="margin-left:12px;font-size:13px;">Details</a></p>
   </div>`; }).join('')}
+  <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:18px;margin:24px 0;">
+    <p style="font-weight:600;font-size:14.5px;">📬 Get guides like this in your inbox</p>
+    <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" target="_blank" style="display:flex;gap:8px;margin-top:10px;">
+      <input type="email" name="email" required placeholder="you@work-email.com" style="flex:1;padding:10px 13px;border-radius:8px;border:1px solid #cbd5e1;font-size:13.5px;">
+      <button type="submit" style="background:var(--accent);color:#fff;border:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:13.5px;cursor:pointer;">Subscribe</button>
+    </form>
+  </div>
   <h2 style="font-size:20px;margin-top:30px;">FAQ</h2>
   ${g.faq.map(f => `<div style="margin:14px 0;"><p style="font-weight:600;font-size:14.5px;">${esc(f.q)}</p><p style="font-size:13.5px;color:var(--text2);margin-top:4px;">${esc(f.a)}</p></div>`).join('')}
 </div></div>`,
