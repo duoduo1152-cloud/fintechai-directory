@@ -226,4 +226,12 @@ ${urls.map(u => `<url><loc>${u}</loc></url>`).join('\n')}
 </urlset>`);
 out('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${SITE.domain}/sitemap.xml\n`);
 
+// copy static files (e.g. search engine verification)
+const staticDir = path.join(__dirname, 'static');
+if (fs.existsSync(staticDir)) {
+  for (const f of fs.readdirSync(staticDir)) {
+    fs.copyFileSync(path.join(staticDir, f), path.join(dist, f));
+  }
+}
+
 console.log(`Built ${urls.length} pages → dist/ (${tools.length} tools, ${categories.length} categories)`);
