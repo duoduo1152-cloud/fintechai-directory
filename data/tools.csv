@@ -1,0 +1,56 @@
+name,url,category,pricing,short_description,target_users,verify_status
+AlphaSense,https://www.alpha-sense.com,Research & Analysis,Enterprise,"AI-powered market intelligence platform searching millions of research documents, filings and earnings transcripts.",Institutional analysts,pending
+Hebbia,https://www.hebbia.ai,Research & Analysis,Enterprise,"AI agent platform (Matrix) for deep document analysis across filings, decks and data rooms.",Hedge funds / PE / IB,pending
+Kensho,https://kensho.com,Research & Analysis,Enterprise,"S&P Global's AI unit: NLP, transcription and entity-linking for financial data.",Institutions / data teams,pending
+Daloopa,https://daloopa.com,Research & Analysis,Paid,"AI-extracted fundamental data and auto-updating financial models from filings.",Buy-side / sell-side analysts,pending
+Fintool,https://fintool.com,Research & Analysis,Paid,"ChatGPT-style equity research copilot over SEC filings and earnings calls.",Equity analysts,pending
+Rogo,https://rogo.ai,Research & Analysis,Enterprise,"AI analyst for investment banks and asset managers, trained on financial workflows.",IB / asset managers,pending
+Brightwave,https://brightwave.io,Research & Analysis,Paid,"AI research assistant generating investment research drafts from filings and news.",Investors / analysts,pending
+Fiscal.ai (FinChat),https://fiscal.ai,Research & Analysis,Freemium,"AI-assisted fundamental data terminal with conversational stock research.",Retail & professional investors,pending
+Quartr,https://quartr.com,Research & Analysis,Freemium,"Earnings call audio, transcripts and AI summaries for listed companies.",Investors / IR teams,pending
+Aiera,https://aiera.com,Research & Analysis,Enterprise,"Real-time event transcription and AI summarization for earnings and conferences.",Institutional investors,pending
+QuantConnect,https://www.quantconnect.com,Trading & Quant,Freemium,"Open algorithmic trading platform with cloud backtesting and live deployment.",Quant developers,pending
+Composer,https://www.composer.trade,Trading & Quant,Freemium,"No-code AI-assisted strategy builder and automated trading app.",Active retail traders,pending
+Trade Ideas,https://www.trade-ideas.com,Trading & Quant,Paid,"AI stock scanner (Holly) generating intraday trade signals.",Day traders,pending
+Danelfin,https://danelfin.com,Trading & Quant,Freemium,"AI stock scoring (1-10) based on hundreds of technical and fundamental signals.",Retail investors,pending
+Kavout,https://www.kavout.com,Trading & Quant,Freemium,"K-Score AI equity ranking and portfolio tools.",Retail / advisors,pending
+Numerai,https://numer.ai,Trading & Quant,Free,"Crowdsourced hedge fund: data scientists submit ML models on encrypted data.",Data scientists,pending
+Tickeron,https://tickeron.com,Trading & Quant,Freemium,"AI pattern recognition and trading bots for stocks, ETFs, forex and crypto.",Retail traders,pending
+Zest AI,https://www.zest.ai,Credit & Lending,Enterprise,"AI credit underwriting models improving approval rates with fairness controls.",Banks / credit unions,pending
+Upstart,https://www.upstart.com,Credit & Lending,Enterprise,"AI lending marketplace using non-traditional variables for credit decisions.",Lenders / borrowers,pending
+Scienaptic AI,https://www.scienaptic.ai,Credit & Lending,Enterprise,"AI credit decisioning platform for banks and credit unions.",Lenders,pending
+ComplyAdvantage,https://complyadvantage.com,Risk & Compliance,Enterprise,"AI-driven AML screening, sanctions and adverse media monitoring.",Compliance teams,pending
+Unit21,https://www.unit21.ai,Risk & Compliance,Enterprise,"No-code fraud and AML operations platform with AI agents.",Fintech risk teams,pending
+Sardine,https://www.sardine.ai,Risk & Compliance,Enterprise,"Behavior-based fraud prevention and compliance platform.",Fintechs / banks,pending
+Feedzai,https://feedzai.com,Risk & Compliance,Enterprise,"Real-time transaction fraud detection with machine learning.",Banks / PSPs,pending
+Featurespace,https://www.featurespace.com,Risk & Compliance,Enterprise,"Adaptive behavioral analytics for fraud and financial crime.",Banks / card issuers,pending
+Hummingbird,https://www.hummingbird.co,Risk & Compliance,Enterprise,"Compliance investigations and SAR filing workspace with AI assistance.",AML investigators,pending
+Greenlite,https://www.greenlite.ai,Risk & Compliance,Enterprise,"AI agents automating AML/KYC alert review for fintechs and banks.",Compliance teams,pending
+Betterment,https://www.betterment.com,Wealth Management,Freemium,"Automated investing and robo-advisory with tax-smart features.",Retail investors,pending
+Wealthfront,https://www.wealthfront.com,Wealth Management,Paid,"Robo-advisor with automated portfolios, tax-loss harvesting and cash accounts.",Retail investors,pending
+Magnifi,https://magnifi.com,Wealth Management,Paid,"Conversational AI investing assistant for fund discovery and portfolio checkups.",Retail investors,pending
+PortfolioPilot,https://portfoliopilot.com,Wealth Management,Freemium,"AI financial advisor giving portfolio scores and personalized recommendations.",Self-directed investors,pending
+Range,https://www.range.com,Wealth Management,Paid,"AI-powered wealth management platform for high earners.",HNW individuals,pending
+Datarails,https://www.datarails.com,FP&A & Accounting,Enterprise,"FP&A platform with AI insights on top of Excel workflows.",CFO / FP&A teams,pending
+Cube,https://www.cubesoftware.com,FP&A & Accounting,Enterprise,"Spreadsheet-native FP&A software with AI-assisted planning.",FP&A teams,pending
+Vena,https://www.venasolutions.com,FP&A & Accounting,Enterprise,"Excel-based planning platform with Vena Copilot AI.",FP&A teams,pending
+Ramp,https://ramp.com,FP&A & Accounting,Freemium,"Corporate cards and spend management with AI expense automation.",Finance teams,pending
+Brex,https://www.brex.com,FP&A & Accounting,Freemium,"Corporate card and spend platform with AI assistants.",Startups / enterprises,pending
+AppZen,https://www.appzen.com,FP&A & Accounting,Enterprise,"AI auditing of expenses and AP invoices.",Finance operations,pending
+Vic.ai,https://www.vic.ai,FP&A & Accounting,Enterprise,"Autonomous AP invoice processing with AI.",Accounting teams,pending
+MindBridge,https://www.mindbridge.ai,FP&A & Accounting,Enterprise,"AI risk discovery for audit, detecting anomalies in full ledgers.",Auditors,pending
+DataSnipper,https://www.datasnipper.com,FP&A & Accounting,Paid,"Intelligent automation inside Excel for audit and finance documentation.",Auditors / accountants,pending
+Trullion,https://trullion.com,FP&A & Accounting,Enterprise,"AI accounting workflows: lease accounting, revrec, audit.",Accountants / auditors,pending
+Digits,https://digits.com,FP&A & Accounting,Paid,"AI-native accounting and bookkeeping for startups.",Founders / accountants,pending
+Botkeeper,https://www.botkeeper.com,FP&A & Accounting,Enterprise,"Automated bookkeeping for accounting firms using ML.",Accounting firms,pending
+Klarity,https://www.klarity.ai,FP&A & Accounting,Enterprise,"AI document review for revenue accounting and compliance.",Accounting teams,pending
+Stripe Radar,https://stripe.com/radar,Payments,Usage-based,"ML fraud prevention built into Stripe's payment network.",Online businesses,pending
+Plaid,https://plaid.com,Payments,Usage-based,"Bank data connectivity APIs with AI-powered insights and risk products.",Fintech developers,pending
+Kasisto,https://kasisto.com,Customer Service,Enterprise,"KAI conversational AI platform purpose-built for banking.",Banks,pending
+Interface.ai,https://interface.ai,Customer Service,Enterprise,"AI voice and chat agents for banks and credit unions.",Banks / credit unions,pending
+Posh AI,https://www.posh.ai,Customer Service,Enterprise,"Conversational AI assistants for community banks.",Banks / credit unions,pending
+Cleo,https://web.meetcleo.com,Personal Finance,Freemium,"AI money assistant with budgeting, credit building and humor.",Gen-Z consumers,pending
+Monarch Money,https://www.monarchmoney.com,Personal Finance,Paid,"Household finance tracking with AI-assisted insights.",Consumers / families,pending
+Rocket Money,https://www.rocketmoney.com,Personal Finance,Freemium,"Subscription cancellation, budgeting and bill negotiation with AI.",Consumers,pending
+Origin,https://www.useorigin.com,Personal Finance,Paid,"All-in-one money app: planning, investing, taxes with AI advisor.",Professionals,pending
+Copilot Money,https://copilot.money,Personal Finance,Paid,"AI-powered personal finance tracker for Apple ecosystem.",Consumers,pending
