@@ -42,6 +42,9 @@ const tools = parseCSV(fs.readFileSync(path.join(__dirname, 'data', 'tools.csv')
   .filter(t => t.name)
   .map(t => ({ ...t, slug: slugify(t.name), catSlug: slugify(t.category) }));
 
+const guides = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'guides.json'), 'utf8'));
+const toolBySlug = Object.fromEntries(tools.map(t => [t.slug, t]));
+
 const categories = [...new Set(tools.map(t => t.category))].map(c => ({
   name: c, slug: slugify(c),
   tools: tools.filter(t => t.category === c),
@@ -146,6 +149,9 @@ out('index.html', layout({
   <div class="section" id="categories"><h2>Browse by Category</h2>
     <div class="catlist">${categories.map(c => `<a href="/category/${c.slug}/">${esc(c.name)} (${c.tools.length})</a>`).join('')}</div>
   </div>
+  <div class="section"><h2>Buying Guides</h2>
+    <div class="grid">${guides.map(g => `<a class="card" href="/best-ai-for/${g.slug}/" style="display:block;color:inherit;text-decoration:none;"><h3>${esc(g.title)}</h3><p>${esc(g.intro.slice(0, 120))}…</p><span class="badge">Guide · Updated ${esc(g.updated)}</span></a>`).join('')}</div>
+  </div>
   <div class="section"><h2>All Tools</h2><div class="grid" id="grid">${tools.map(toolCard).join('\n')}</div></div>
 </div>
 <script>
@@ -200,6 +206,35 @@ for (const t of tools) {
   }));
 }
 
+// Guide pages (/best-ai-for/<slug>/)
+for (const g of guides) {
+  const year = new Date().getFullYear();
+  out(`best-ai-for/${g.slug}/index.html`, layout({
+    title: `${g.title} (${year}) — ${SITE.name}`,
+    desc: g.intro.slice(0, 155),
+    canonical: `${SITE.domain}/best-ai-for/${g.slug}/`,
+    schema: { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+    body: `<div class="wrap">
+<p class="breadcrumb"><a href="/">Home</a> › Guides › ${esc(g.title)}</p>
+<div class="section" style="max-width:760px;">
+  <h2 style="font-size:26px;">${esc(g.title)} <span style="font-size:14px;color:var(--text2);font-weight:400;">(Updated ${esc(g.updated)})</span></h2>
+  <p style="color:var(--text2);margin:14px 0 24px;">${esc(g.intro)}</p>
+  <table class="meta-table"><tr><td style="width:auto"><b>Our picks at a glance</b></td><td></td></tr>
+  ${g.picks.map(p => { const t = toolBySlug[p.tool]; return t ? `<tr><td>${esc(p.label)}</td><td><a href="/tool/${t.slug}/"><b>${esc(t.name)}</b></a></td></tr>` : ''; }).join('')}
+  </table>
+  ${g.picks.map(p => { const t = toolBySlug[p.tool]; if (!t) return ''; return `
+  <div class="card" style="margin:14px 0;">
+    <h3 style="font-size:17px;">${esc(t.name)} — <span style="color:var(--accent);font-size:14px;">${esc(p.label)}</span></h3>
+    <p style="font-size:13.5px;color:var(--text2);margin:8px 0;">${esc(p.verdict)}</p>
+    <p style="font-size:12.5px;color:var(--text2);">Pricing: ${esc(t.pricing)} · Best for: ${esc(t.target_users)}</p>
+    <p style="margin-top:10px;"><a class="btn" style="padding:7px 16px;font-size:13px;" href="${esc(t.url)}" target="_blank" rel="noopener nofollow">Visit ${esc(t.name)} →</a> <a href="/tool/${t.slug}/" style="margin-left:12px;font-size:13px;">Details</a></p>
+  </div>`; }).join('')}
+  <h2 style="font-size:20px;margin-top:30px;">FAQ</h2>
+  ${g.faq.map(f => `<div style="margin:14px 0;"><p style="font-weight:600;font-size:14.5px;">${esc(f.q)}</p><p style="font-size:13.5px;color:var(--text2);margin-top:4px;">${esc(f.a)}</p></div>`).join('')}
+</div></div>`,
+  }));
+}
+
 // About
 out('about/index.html', layout({
   title: `About — ${SITE.name}`,
@@ -218,6 +253,7 @@ out('404.html', layout({ title: 'Page Not Found', desc: 'Page not found', canoni
 
 // sitemap + robots
 const urls = [`${SITE.domain}/`, `${SITE.domain}/about/`,
+  ...guides.map(g => `${SITE.domain}/best-ai-for/${g.slug}/`),
   ...categories.map(c => `${SITE.domain}/category/${c.slug}/`),
   ...tools.map(t => `${SITE.domain}/tool/${t.slug}/`)];
 out('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
