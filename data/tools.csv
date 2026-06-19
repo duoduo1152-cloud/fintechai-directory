@@ -117,3 +117,43 @@ Glia,https://www.glia.com,Customer Service,Enterprise,"Unified interaction platf
 Eltropy,https://eltropy.com,Customer Service,Enterprise,"AI-powered digital conversations platform for community financial institutions.",Credit unions / banks,pending
 Albert,https://albert.com,Personal Finance,Paid,"All-in-one money app with automated budgeting, saving and investing.",Consumers,pending
 Bright Money,https://www.brightmoney.co,Personal Finance,Paid,"AI system building personalized plans to pay down credit card debt.",Consumers,pending
+Public,https://public.com,Investing Apps,Freemium,"Investing app with AI assistant (Alpha) for stocks, bonds and market context.",Retail investors,pending
+Moomoo,https://www.moomoo.com,Investing Apps,Freemium,"Trading app with AI-driven analytics and market data tools.",Active retail traders,pending
+Stockopedia,https://www.stockopedia.com,Investing Apps,Paid,"Quantitative stock ranking and screening for individual investors.",Retail investors,pending
+Bloomberg GPT,https://www.bloomberg.com/company/press/bloomberggpt-50-billion-parameter-llm-tuned-finance/,Research & Analysis,Enterprise,"Bloomberg's finance-tuned large language model embedded across the Terminal.",Institutional users,pending
+AlphaResearch,https://www.alpha-research.io,Research & Analysis,Freemium,"AI search engine for company filings, transcripts and global financial documents.",Analysts,pending
+Bardeen,https://www.bardeen.ai,Automation,Freemium,"AI automation for finance workflows: data pulls, reporting and CRM updates.",Finance ops,pending
+Nanonets,https://nanonets.com,Document Intelligence,Paid,"AI workflows for invoice, receipt and financial document data extraction.",Finance teams,pending
+Rossum,https://rossum.ai,Document Intelligence,Enterprise,"AI document gateway for accounts payable and transactional documents.",AP teams,pending
+HighRadius,https://www.highradius.com,Treasury,Enterprise,"AI-powered order-to-cash, treasury and record-to-report automation.",Large enterprises,pending
+Tesorio,https://www.tesorio.com,Treasury,Enterprise,"AI cash flow forecasting and accounts receivable management.",Finance teams,pending
+Centime,https://www.centime.com,Treasury,Paid,"AI cash management connecting AR, AP and forecasting for SMBs.",SMB finance,pending
+Ledge,https://www.ledge.co,FP&A & Accounting,Enterprise,"AI finance operations platform automating reconciliation and cash workflows.",Finance ops,pending
+Puzzle,https://puzzle.io,FP&A & Accounting,Paid,"AI-native accounting software giving startups real-time financials.",Startups,pending
+Bilanc,https://www.bilanc.com,FP&A & Accounting,Enterprise,"AI finance copilot for accounting and reporting tasks.",Finance teams,pending
+Booke AI,https://booke.ai,FP&A & Accounting,Paid,"AI bookkeeping automation and client communication for accounting firms.",Bookkeepers,pending
+Docyt,https://docyt.com,FP&A & Accounting,Paid,"AI accounting automation with real-time bookkeeping and reporting.",SMB finance,pending
+Zeni,https://www.zeni.ai,FP&A & Accounting,Paid,"AI-powered bookkeeping, accounting and CFO services for startups.",Startups,pending
+Pilot,https://pilot.com,FP&A & Accounting,Paid,"Bookkeeping and finance back office with AI-assisted workflows.",Startups,pending
+Bench,https://www.bench.co,FP&A & Accounting,Paid,"Online bookkeeping service with software and human bookkeepers.",Small businesses,pending
+Material Security,https://material.security,Risk & Compliance,Enterprise,"AI security for finance email and account takeover protection.",Finance / IT teams,pending
+DataVisor,https://www.datavisor.com,Risk & Compliance,Enterprise,"AI fraud and risk platform with unsupervised machine learning.",Banks / fintechs,pending
+Inscribe,https://www.inscribe.ai,Risk & Compliance,Enterprise,"AI document fraud detection and risk intelligence for lenders.",Lenders / fintechs,pending
+Effectiv,https://www.effectiv.ai,Risk & Compliance,Enterprise,"AI risk decisioning unifying fraud, AML and compliance.",Banks / fintechs,pending
+Cable,https://cable.tech,Risk & Compliance,Enterprise,"Automated control testing and assurance for compliance teams.",Compliance teams,pending
+Norm Ai,https://www.norm.ai,Risk & Compliance,Enterprise,"AI regulatory agents translating rules into automated compliance checks.",Compliance / legal,pending
+Greenwave (Themis),https://www.themis.com,Risk & Compliance,Enterprise,"Financial crime compliance platform with AI workflow tools.",Compliance teams,pending
+Parcha,https://www.parcha.com,Risk & Compliance,Enterprise,"AI agents automating KYB, KYC and compliance operations.",Fintech compliance,pending
+Casca,https://www.cascading.ai,Credit & Lending,Enterprise,"AI loan origination assistant automating SMB lending workflows.",Banks / lenders,pending
+Kredmint,https://www.kredmint.com,Credit & Lending,Enterprise,"AI-driven embedded lending and credit infrastructure.",Fintechs,pending
+Lendflow,https://lendflow.com,Credit & Lending,Enterprise,"Embedded lending infrastructure with AI credit decisioning.",Platforms / fintechs,pending
+Coris,https://www.coris.ai,Risk & Compliance,Enterprise,"AI risk management for SMB-facing fintechs and platforms.",Fintech risk teams,pending
+Quilt Labs,https://www.quilt.app,Insurance,Paid,"AI assistant for insurance agents handling quotes and servicing.",Insurance agents,pending
+Indemn,https://www.indemn.ai,Insurance,Enterprise,"Conversational AI for insurance distribution and customer engagement.",Insurers / brokers,pending
+Kyber,https://www.kyber.so,Insurance,Paid,"AI drafting of insurance claims correspondence and documents.",Claims teams,pending
+Akur8,https://www.akur8.com,Insurance,Enterprise,"AI insurance pricing and reserving for actuaries.",Actuaries / insurers,pending
+Planck,https://www.planckdata.com,Insurance,Enterprise,"AI data platform for commercial insurance underwriting insights.",Commercial underwriters,pending
+Briefcase,https://www.briefcase.so,FP&A & Accounting,Paid,"AI accounting agent automating bookkeeping tasks for firms.",Accounting firms,pending
+Stagger,https://www.taxgpt.com,Tax,Paid,"AI tax workflow automation for professional preparers.",Tax pros,pending
+Keeper,https://keeper.tax,Tax,Freemium,"AI tax filing and write-off tracking app for freelancers.",Freelancers / consumers,pending
+Column Tax,https://www.columntax.com,Tax,Enterprise,"Embedded tax filing APIs for fintech apps.",Fintechs,pending
