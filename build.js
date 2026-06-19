@@ -65,6 +65,7 @@ function layout({ title, desc, canonical, body, schema }) {
 <meta property="og:type" content="website">
 <meta property="og:url" content="${canonical}">
 ${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>` : ''}
+<script defer src="/_vercel/insights/script.js"></script>
 <style>
 :root{--bg:#fafbfc;--card:#fff;--text:#16182d;--text2:#5a5f73;--border:#e6e8ee;--accent:#1d4ed8;--accent2:#047857;}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -113,7 +114,7 @@ ${body}
 <div style="background:#0f2a52;color:#fff;padding:40px 20px;text-align:center;">
   <h2 style="font-size:20px;margin-bottom:6px;">Fintech AI Weekly</h2>
   <p style="font-size:13.5px;opacity:.85;max-width:480px;margin:0 auto 16px;">New AI tools for finance, reviewed by a wealth-management insider. One email a week, no spam.</p>
-  <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" target="_blank" style="display:flex;gap:8px;max-width:420px;margin:0 auto;">
+  <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" class="bd-form" style="display:flex;gap:8px;max-width:420px;margin:0 auto;">
     <input type="email" name="email" required placeholder="you@work-email.com" style="flex:1;padding:11px 14px;border-radius:8px;border:none;font-size:14px;">
     <button type="submit" style="background:#10b981;color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;">Subscribe</button>
   </form>
@@ -122,6 +123,27 @@ ${body}
   <p>${SITE.name} — ${SITE.tagline}</p>
   <p style="margin-top:6px;">© ${new Date().getFullYear()} fintechai.directory · Independently curated. Some links may be affiliate links.</p>
 </div></footer>
+<script>
+document.querySelectorAll('form.bd-form').forEach(function(form){
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button[type=submit]');
+    var data = new FormData(form);
+    btn && (btn.disabled = true, btn.textContent = '...');
+    fetch(form.action, { method:'POST', body:data, mode:'no-cors' })
+      .then(function(){
+        var msg = document.createElement('p');
+        msg.textContent = '\u2713 Thanks! Check your inbox to confirm your subscription.';
+        msg.style.cssText = 'color:#10b981;font-weight:600;font-size:14px;margin:6px 0 0;';
+        form.replaceWith(msg);
+      })
+      .catch(function(){
+        btn && (btn.disabled = false, btn.textContent = 'Subscribe');
+        alert('Something went wrong. Please try again.');
+      });
+  });
+});
+</script>
 </body>
 </html>`;
 }
@@ -152,7 +174,7 @@ out('index.html', layout({
   <h1>Find the Right AI Tool for Finance</h1>
   <p>${tools.length}+ AI tools for research, trading, risk, compliance and wealth management — curated and reviewed by finance professionals, not bots.</p>
   <div class="search"><input id="q" type="search" placeholder="Search ${tools.length} tools… (e.g. 'earnings analysis', 'fraud detection')"></div>
-  <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" target="_blank" style="display:flex;gap:8px;max-width:480px;margin:18px auto 0;">
+  <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" class="bd-form" style="display:flex;gap:8px;max-width:480px;margin:18px auto 0;">
     <input type="email" name="email" required placeholder="Get new fintech AI tools weekly — your email" style="flex:1;padding:11px 14px;border-radius:8px;border:none;font-size:13.5px;">
     <button type="submit" style="background:#10b981;color:#fff;border:none;padding:11px 18px;border-radius:8px;font-weight:600;font-size:13.5px;cursor:pointer;white-space:nowrap;">Subscribe</button>
   </form>
@@ -244,7 +266,7 @@ for (const g of guides) {
   </div>`; }).join('')}
   <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:18px;margin:24px 0;">
     <p style="font-weight:600;font-size:14.5px;">📬 Get guides like this in your inbox</p>
-    <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" target="_blank" style="display:flex;gap:8px;margin-top:10px;">
+    <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" class="bd-form" style="display:flex;gap:8px;margin-top:10px;">
       <input type="email" name="email" required placeholder="you@work-email.com" style="flex:1;padding:10px 13px;border-radius:8px;border:1px solid #cbd5e1;font-size:13.5px;">
       <button type="submit" style="background:var(--accent);color:#fff;border:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:13.5px;cursor:pointer;">Subscribe</button>
     </form>
