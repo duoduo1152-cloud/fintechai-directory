@@ -10,8 +10,8 @@ const SITE = {
   description: 'The professional directory of AI tools for finance — research, trading, risk, compliance, wealth management and more. Curated and reviewed by finance industry insiders.',
 };
 
-const rawGa4Id = (process.env.GA4_MEASUREMENT_ID || '').trim().toUpperCase();
-const GA4_ID = /^G-[A-Z0-9]+$/.test(rawGa4Id) ? rawGa4Id : '';
+const rawGa4Id = (process.env.GA4_MEASUREMENT_ID || 'G-M9W7YHWNBQ').trim().toUpperCase();
+const GA4_ID = /^G-[A-Z0-9]+$/.test(rawGa4Id) ? rawGa4Id : 'G-M9W7YHWNBQ';
 
 // ---------- CSV parsing (handles quoted fields) ----------
 function parseCSV(text) {
