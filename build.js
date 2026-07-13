@@ -10,6 +10,9 @@ const SITE = {
   description: 'The professional directory of AI tools for finance — research, trading, risk, compliance, wealth management and more. Curated and reviewed by finance industry insiders.',
 };
 
+const rawGa4Id = (process.env.GA4_MEASUREMENT_ID || '').trim().toUpperCase();
+const GA4_ID = /^G-[A-Z0-9]+$/.test(rawGa4Id) ? rawGa4Id : '';
+
 // ---------- CSV parsing (handles quoted fields) ----------
 function parseCSV(text) {
   const rows = [];
@@ -65,6 +68,13 @@ function layout({ title, desc, canonical, body, schema }) {
 <meta property="og:type" content="website">
 <meta property="og:url" content="${canonical}">
 ${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>` : ''}
+${GA4_ID ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_ID}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA4_ID}', { anonymize_ip: true });
+</script>` : ''}
 <script defer src="/_vercel/insights/script.js"></script>
 <style>
 :root{--bg:#fafbfc;--card:#fff;--text:#16182d;--text2:#5a5f73;--border:#e6e8ee;--accent:#1d4ed8;--accent2:#047857;}
@@ -102,7 +112,21 @@ h2{font-size:22px;margin-bottom:18px}
 .meta-table td{padding:9px 12px;border-bottom:1px solid var(--border)}
 .meta-table td:first-child{color:var(--text2);width:160px}
 footer{border-top:1px solid var(--border);padding:28px 0;margin-top:40px;font-size:13px;color:var(--text2);text-align:center}
-@media(max-width:640px){.hero h1{font-size:24px}}
+.bd-form{width:100%}
+.bd-form input{min-width:0}
+@media(max-width:640px){
+  .wrap{padding:0 16px}
+  header .wrap{justify-content:center}
+  nav{width:100%;display:flex;justify-content:center;gap:16px}
+  nav a{margin-left:0}
+  .hero{padding:40px 16px 34px}
+  .hero h1{font-size:24px}
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .bd-form{flex-direction:column}
+  .bd-form input,.bd-form button{width:100%!important;min-width:0}
+  .tool-head .btn{width:100%;text-align:center}
+  .meta-table{display:block;overflow-x:auto}
+}
 </style>
 </head>
 <body>
@@ -114,7 +138,7 @@ ${body}
 <div style="background:#0f2a52;color:#fff;padding:40px 20px;text-align:center;">
   <h2 style="font-size:20px;margin-bottom:6px;">Fintech AI Weekly</h2>
   <p style="font-size:13.5px;opacity:.85;max-width:480px;margin:0 auto 16px;">New AI tools for finance, reviewed by a wealth-management insider. One email a week, no spam.</p>
-  <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" class="bd-form" style="display:flex;gap:8px;max-width:420px;margin:0 auto;">
+  <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" class="bd-form" data-newsletter-placement="footer" style="display:flex;gap:8px;max-width:420px;margin:0 auto;">
     <input type="email" name="email" required placeholder="you@work-email.com" style="flex:1;padding:11px 14px;border-radius:8px;border:none;font-size:14px;">
     <button type="submit" style="background:#10b981;color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;">Subscribe</button>
   </form>
@@ -124,14 +148,38 @@ ${body}
   <p style="margin-top:6px;">© ${new Date().getFullYear()} fintechai.directory · Independently curated. Some links may be affiliate links.</p>
 </div></footer>
 <script>
+function currentPageType(){
+  var p = window.location.pathname;
+  if (p.indexOf('/tool/') === 0) return 'tool';
+  if (p.indexOf('/best-ai-for/') === 0) return 'guide';
+  if (p.indexOf('/category/') === 0) return 'category';
+  if (p.indexOf('/about/') === 0) return 'about';
+  return 'home';
+}
+function trackEvent(name, params){
+  if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+}
+document.addEventListener('click', function(e){
+  var link = e.target.closest('[data-track="outbound_tool_click"]');
+  if (!link) return;
+  trackEvent('outbound_tool_click', {
+    tool_name: link.getAttribute('data-tool-name') || '',
+    category: link.getAttribute('data-category') || '',
+    page_type: currentPageType(),
+    placement: link.getAttribute('data-placement') || 'unknown'
+  });
+});
 document.querySelectorAll('form.bd-form').forEach(function(form){
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var btn = form.querySelector('button[type=submit]');
     var data = new FormData(form);
+    var placement = form.getAttribute('data-newsletter-placement') || 'unknown';
+    trackEvent('newsletter_submit', { page_type: currentPageType(), placement: placement });
     btn && (btn.disabled = true, btn.textContent = '...');
     fetch(form.action, { method:'POST', body:data, mode:'no-cors' })
       .then(function(){
+        trackEvent('newsletter_success', { page_type: currentPageType(), placement: placement });
         var msg = document.createElement('p');
         msg.textContent = '\u2713 Thanks! Check your inbox to confirm your subscription.';
         msg.style.cssText = 'color:#10b981;font-weight:600;font-size:14px;margin:6px 0 0;';
@@ -174,7 +222,7 @@ out('index.html', layout({
   <h1>Find the Right AI Tool for Finance</h1>
   <p>${tools.length}+ AI tools for research, trading, risk, compliance and wealth management — curated and reviewed by finance professionals, not bots.</p>
   <div class="search"><input id="q" type="search" placeholder="Search ${tools.length} tools… (e.g. 'earnings analysis', 'fraud detection')"></div>
-  <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" class="bd-form" style="display:flex;gap:8px;max-width:480px;margin:18px auto 0;">
+  <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" class="bd-form" data-newsletter-placement="home_hero" style="display:flex;gap:8px;max-width:480px;margin:18px auto 0;">
     <input type="email" name="email" required placeholder="Get new fintech AI tools weekly — your email" style="flex:1;padding:11px 14px;border-radius:8px;border:none;font-size:13.5px;">
     <button type="submit" style="background:#10b981;color:#fff;border:none;padding:11px 18px;border-radius:8px;font-weight:600;font-size:13.5px;cursor:pointer;white-space:nowrap;">Subscribe</button>
   </form>
@@ -190,11 +238,21 @@ out('index.html', layout({
   <div class="section"><h2>All Tools</h2><div class="grid" id="grid">${tools.map(toolCard).join('\n')}</div></div>
 </div>
 <script>
+var searchTimer;
 document.getElementById('q').addEventListener('input',function(){
   var q=this.value.toLowerCase();
+  var matches=0;
   document.querySelectorAll('#grid .card').forEach(function(c){
-    c.style.display=c.textContent.toLowerCase().includes(q)?'':'none';
+    var visible=c.textContent.toLowerCase().includes(q);
+    c.style.display=visible?'':'none';
+    if(visible) matches++;
   });
+  clearTimeout(searchTimer);
+  if(q.length>=2){
+    searchTimer=setTimeout(function(){
+      trackEvent('site_search',{page_type:'home',query_length:q.length,results_count:matches});
+    },600);
+  }
 });
 </script>`,
 }));
@@ -228,7 +286,7 @@ for (const t of tools) {
   <div class="tool-head">
     <div><h2 style="font-size:26px;">${esc(t.name)}</h2>
     <p style="color:var(--text2);max-width:640px;margin-top:6px;">${esc(t.short_description)}</p></div>
-    <a class="btn" href="${esc(t.url)}" target="_blank" rel="noopener nofollow">Visit Website →</a>
+    <a class="btn" href="${esc(t.url)}" target="_blank" rel="noopener nofollow" data-track="outbound_tool_click" data-tool-name="${esc(t.name)}" data-category="${esc(t.category)}" data-placement="tool_header">Visit Website →</a>
   </div>
   <table class="meta-table">
     <tr><td>Category</td><td><a href="/category/${t.catSlug}/">${esc(t.category)}</a></td></tr>
@@ -262,11 +320,11 @@ for (const g of guides) {
     <h3 style="font-size:17px;">${esc(t.name)} — <span style="color:var(--accent);font-size:14px;">${esc(p.label)}</span></h3>
     <p style="font-size:13.5px;color:var(--text2);margin:8px 0;">${esc(p.verdict)}</p>
     <p style="font-size:12.5px;color:var(--text2);">Pricing: ${esc(t.pricing)} · Best for: ${esc(t.target_users)}</p>
-    <p style="margin-top:10px;"><a class="btn" style="padding:7px 16px;font-size:13px;" href="${esc(t.url)}" target="_blank" rel="noopener nofollow">Visit ${esc(t.name)} →</a> <a href="/tool/${t.slug}/" style="margin-left:12px;font-size:13px;">Details</a></p>
+    <p style="margin-top:10px;"><a class="btn" style="padding:7px 16px;font-size:13px;" href="${esc(t.url)}" target="_blank" rel="noopener nofollow" data-track="outbound_tool_click" data-tool-name="${esc(t.name)}" data-category="${esc(t.category)}" data-placement="guide_pick">Visit ${esc(t.name)} →</a> <a href="/tool/${t.slug}/" style="margin-left:12px;font-size:13px;">Details</a></p>
   </div>`; }).join('')}
   <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:18px;margin:24px 0;">
     <p style="font-weight:600;font-size:14.5px;">📬 Get guides like this in your inbox</p>
-    <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" class="bd-form" style="display:flex;gap:8px;margin-top:10px;">
+    <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" class="bd-form" data-newsletter-placement="guide_inline" style="display:flex;gap:8px;margin-top:10px;">
       <input type="email" name="email" required placeholder="you@work-email.com" style="flex:1;padding:10px 13px;border-radius:8px;border:1px solid #cbd5e1;font-size:13.5px;">
       <button type="submit" style="background:var(--accent);color:#fff;border:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:13.5px;cursor:pointer;">Subscribe</button>
     </form>
