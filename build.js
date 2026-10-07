@@ -12,6 +12,8 @@ const SITE = {
 
 const rawGa4Id = (process.env.GA4_MEASUREMENT_ID || 'G-M9W7YHWNBQ').trim().toUpperCase();
 const GA4_ID = /^G-[A-Z0-9]+$/.test(rawGa4Id) ? rawGa4Id : 'G-M9W7YHWNBQ';
+const CONTACT_EMAIL = 'hello@fintechai.directory';
+const mailto = (subject, body = '') => `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
 // ---------- CSV parsing (handles quoted fields) ----------
 function parseCSV(text) {
@@ -87,6 +89,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;flex-
 .logo{font-weight:800;font-size:18px;color:var(--text)}
 .logo span{color:var(--accent)}
 nav a{margin-left:18px;font-size:14px;color:var(--text2)}
+.nav-commercial{font-weight:700;color:var(--accent)!important}
 .hero{text-align:center;padding:56px 20px 44px;background:linear-gradient(135deg,#0f2a52,#1d4ed8);color:#fff}
 .hero h1{font-size:32px;margin-bottom:10px;letter-spacing:-.5px}
 .hero p{font-size:16px;opacity:.88;max-width:640px;margin:0 auto}
@@ -108,6 +111,18 @@ h2{font-size:22px;margin-bottom:18px}
 .tool-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 22px;border-radius:9px;font-weight:600;font-size:14px}
 .btn:hover{text-decoration:none;opacity:.92}
+.btn.secondary{background:#fff;color:var(--accent);border:1px solid #bfdbfe}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.commercial-hero{padding:52px 0 36px;background:linear-gradient(135deg,#eef4ff,#fff)}
+.commercial-hero h1{font-size:34px;line-height:1.15;letter-spacing:-.7px;max-width:720px}
+.commercial-hero p{color:var(--text2);max-width:700px;margin:14px 0 22px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.price-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px;position:relative}
+.price-card.featured{border:2px solid var(--accent)}
+.price{font-size:30px;font-weight:800;margin:8px 0}.price small{font-size:13px;color:var(--text2);font-weight:500}
+.feature-list{list-style:none;margin:14px 0 20px}.feature-list li{font-size:13.5px;color:var(--text2);padding:5px 0}.feature-list li:before{content:'✓';color:var(--accent2);font-weight:800;margin-right:8px}
+.trust-note{font-size:12.5px;color:var(--text2);background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:14px;margin-top:18px}
+.claim-box{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:24px}
 .meta-table{width:100%;border-collapse:collapse;font-size:14px;margin:18px 0}
 .meta-table td{padding:9px 12px;border-bottom:1px solid var(--border)}
 .meta-table td:first-child{color:var(--text2);width:160px}
@@ -126,13 +141,16 @@ footer{border-top:1px solid var(--border);padding:28px 0;margin-top:40px;font-si
   .bd-form input,.bd-form button{width:100%!important;min-width:0}
   .tool-head .btn{width:100%;text-align:center}
   .meta-table{display:block;overflow-x:auto}
+  .pricing-grid{grid-template-columns:1fr}
+  .commercial-hero h1{font-size:27px}
+  .claim-box{display:block}.claim-box .btn{margin-top:12px;width:100%;text-align:center}
 }
 </style>
 </head>
 <body>
 <header><div class="wrap">
   <a class="logo" href="/">Fintech<span>AI</span>.directory</a>
-  <nav><a href="/">Home</a><a href="/#categories">Categories</a><a href="/about/">About</a></nav>
+  <nav><a href="/">Home</a><a href="/#categories">Categories</a><a href="/about/">About</a><a class="nav-commercial" href="/for-vendors/">For vendors</a></nav>
 </div></header>
 ${body}
 <div style="background:#0f2a52;color:#fff;padding:40px 20px;text-align:center;">
@@ -145,7 +163,8 @@ ${body}
 </div>
 <footer><div class="wrap">
   <p>${SITE.name} — ${SITE.tagline}</p>
-  <p style="margin-top:6px;">© ${new Date().getFullYear()} fintechai.directory · Independently curated. Some links may be affiliate links.</p>
+  <p style="margin-top:6px;"><a href="/submit-tool/">Submit a tool</a> · <a href="/for-vendors/">Advertise</a> · <a href="/disclosure/">Editorial &amp; affiliate disclosure</a></p>
+  <p style="margin-top:6px;">© ${new Date().getFullYear()} fintechai.directory · Independently curated.</p>
 </div></footer>
 <script>
 function currentPageType(){
@@ -161,13 +180,23 @@ function trackEvent(name, params){
 }
 document.addEventListener('click', function(e){
   var link = e.target.closest('[data-track="outbound_tool_click"]');
-  if (!link) return;
-  trackEvent('outbound_tool_click', {
-    tool_name: link.getAttribute('data-tool-name') || '',
-    category: link.getAttribute('data-category') || '',
-    page_type: currentPageType(),
-    placement: link.getAttribute('data-placement') || 'unknown'
-  });
+  if (link) {
+    trackEvent('outbound_tool_click', {
+      tool_name: link.getAttribute('data-tool-name') || '',
+      category: link.getAttribute('data-category') || '',
+      page_type: currentPageType(),
+      placement: link.getAttribute('data-placement') || 'unknown',
+      commercial_type: link.getAttribute('data-commercial-type') || 'organic'
+    });
+  }
+  var commercial = e.target.closest('[data-commercial-action]');
+  if (commercial) {
+    trackEvent('commercial_cta_click', {
+      action: commercial.getAttribute('data-commercial-action') || 'unknown',
+      offer: commercial.getAttribute('data-offer') || '',
+      page_type: currentPageType()
+    });
+  }
 });
 document.querySelectorAll('form.bd-form').forEach(function(form){
   form.addEventListener('submit', function(e){
@@ -235,6 +264,10 @@ out('index.html', layout({
   <div class="section"><h2>Buying Guides</h2>
     <div class="grid">${guides.map(g => `<a class="card" href="/best-ai-for/${g.slug}/" style="display:block;color:inherit;text-decoration:none;"><h3>${esc(g.title)}</h3><p>${esc(g.intro.slice(0, 120))}…</p><span class="badge">Guide · Updated ${esc(g.updated)}</span></a>`).join('')}</div>
   </div>
+  <div class="claim-box">
+    <div><p class="eyebrow">For fintech AI companies</p><h2 style="font-size:18px;margin:0 0 4px;">Reach finance teams actively comparing tools</h2><p style="font-size:13.5px;color:var(--text2);">Submit, claim or feature your product with transparent launch pricing.</p></div>
+    <a class="btn" href="/for-vendors/" data-commercial-action="view_vendor_offers" data-offer="homepage_vendor_cta">View vendor options</a>
+  </div>
   <div class="section"><h2>All Tools</h2><div class="grid" id="grid">${tools.map(toolCard).join('\n')}</div></div>
 </div>
 <script>
@@ -294,6 +327,10 @@ for (const t of tools) {
     <tr><td>Best for</td><td>${esc(t.target_users)}</td></tr>
     <tr><td>Website</td><td><a href="${esc(t.url)}" rel="nofollow">${esc(t.url)}</a></td></tr>
   </table>
+  <div class="claim-box">
+    <div><p style="font-weight:700;">Represent ${esc(t.name)}?</p><p style="font-size:13px;color:var(--text2);">Claim this listing to correct product details, add a verified profile or discuss featured placement.</p></div>
+    <a class="btn secondary" href="${mailto(`Claim ${t.name} listing`, `Company:\nYour name and role:\nProduct URL:\nRequested changes:\n\nPlease send this from your company email so we can verify ownership.`)}" data-commercial-action="claim_listing" data-offer="claim_${t.slug}">Claim this listing</a>
+  </div>
   ${related.length ? `<h2 style="font-size:18px;margin-top:28px;">Alternatives in ${esc(t.category)}</h2><div class="grid" style="margin-top:14px;">${related.map(toolCard).join('')}</div>` : ''}
 </div></div>`,
   }));
@@ -344,15 +381,71 @@ out('about/index.html', layout({
 <h2>About FintechAI.directory</h2>
 <p style="margin:14px 0;color:var(--text2)">FintechAI.directory is an independently curated directory of AI tools for the finance industry — covering investment research, trading, risk, compliance, wealth management, FP&amp;A and more.</p>
 <p style="margin:14px 0;color:var(--text2)">Unlike generic AI directories, every listing here is reviewed through the lens of a finance professional with 10+ years in wealth management and financial data: does the tool solve a real workflow problem, is the pricing sane, and would we actually use it?</p>
-<p style="margin:14px 0;color:var(--text2)">Want your tool listed? Contact us at hello@fintechai.directory.</p>
+<p style="margin:14px 0;color:var(--text2)">Want your tool listed? <a href="/submit-tool/">Submit it for editorial review</a>. Vendors can also <a href="/for-vendors/">view sponsorship options</a>.</p>
 </div></div>`,
+}));
+
+// Vendor monetization page
+out('for-vendors/index.html', layout({
+  title: `Reach Finance Buyers — Vendor Partnerships | ${SITE.name}`,
+  desc: 'Put your fintech AI product in front of finance professionals comparing tools. Featured listings, sponsored buyer guides and launch packages.',
+  canonical: `${SITE.domain}/for-vendors/`,
+  schema: { '@context': 'https://schema.org', '@type': 'Service', name: 'FintechAI Directory vendor partnerships', provider: { '@type': 'Organization', name: SITE.name }, areaServed: 'Worldwide' },
+  body: `<div class="commercial-hero"><div class="wrap">
+    <p class="eyebrow">Vendor partnerships</p>
+    <h1>Reach finance teams while they are comparing AI tools</h1>
+    <p>FintechAI Directory helps analysts, advisors, compliance teams and finance leaders shortlist specialist AI products. Put your product in the right category with clear, transparent sponsorship.</p>
+    <a class="btn" href="${mailto('FintechAI Directory partnership inquiry', 'Company:\nProduct URL:\nTarget customer:\nOffer of interest:\nLaunch timing:\n')}" data-commercial-action="sponsor_inquiry" data-offer="hero">Start a partnership inquiry</a>
+    <p class="trust-note">We do not sell rankings or positive verdicts. Sponsored placements are labeled, and editorial inclusion remains independent.</p>
+  </div></div>
+  <div class="wrap"><div class="section">
+    <h2>Founding partner offers</h2>
+    <p style="color:var(--text2);max-width:720px;">Introductory pricing for the first partner cohort. Every campaign includes click tracking and a simple performance summary.</p>
+    <div class="pricing-grid">
+      <div class="price-card"><p class="eyebrow">Verified profile</p><h3>Claim &amp; enrich</h3><p class="price">$0</p><ul class="feature-list"><li>Company ownership verification</li><li>Correct product facts and links</li><li>Editorial review queue</li></ul><a class="btn secondary" href="/submit-tool/" data-commercial-action="vendor_offer" data-offer="verified_profile">Submit or claim</a></div>
+      <div class="price-card featured"><p class="eyebrow">Featured listing</p><h3>Category visibility</h3><p class="price">$99 <small>/ 30 days</small></p><ul class="feature-list"><li>Labeled featured placement</li><li>Category-page visibility</li><li>Tracked outbound clicks</li><li>Campaign performance summary</li></ul><a class="btn" href="${mailto('Featured listing inquiry — $99', 'Company:\nProduct URL:\nPreferred category:\nCampaign timing:\n')}" data-commercial-action="vendor_offer" data-offer="featured_99">Reserve a placement</a></div>
+      <div class="price-card"><p class="eyebrow">Buyer guide sponsor</p><h3>High-intent context</h3><p class="price">$299 <small>/ guide</small></p><ul class="feature-list"><li>Clearly labeled sponsor block</li><li>Product CTA in one relevant guide</li><li>Tracked clicks</li><li>Editorial independence preserved</li></ul><a class="btn secondary" href="${mailto('Buyer guide sponsorship inquiry — $299', 'Company:\nProduct URL:\nPreferred guide/category:\nKey use case:\nCampaign timing:\n')}" data-commercial-action="vendor_offer" data-offer="guide_299">Discuss a guide</a></div>
+    </div>
+  </div>
+  <div class="section" style="max-width:760px;"><h2>How it works</h2>
+    <div class="grid"><div class="card"><h3>1. Relevance check</h3><p>We confirm the product fits a finance workflow and choose the right audience and page.</p></div><div class="card"><h3>2. Transparent placement</h3><p>Sponsored elements are labeled. Your team approves factual product details, not our editorial judgment.</p></div><div class="card"><h3>3. Measured response</h3><p>We report tracked clicks and campaign placement. No inflated traffic promises or invented leads.</p></div></div>
+    <div class="claim-box"><div><h3>Need a launch package?</h3><p style="font-size:13.5px;color:var(--text2);">We can combine a featured listing, guide sponsorship and newsletter placement after audience fit is confirmed.</p></div><a class="btn" href="${mailto('Custom launch package inquiry', 'Company:\nProduct URL:\nLaunch date:\nTarget buyer:\nBudget range:\n')}" data-commercial-action="sponsor_inquiry" data-offer="custom_package">Request a package</a></div>
+  </div></div>`,
+}));
+
+// Free submission funnel
+out('submit-tool/index.html', layout({
+  title: `Submit or Claim a Fintech AI Tool | ${SITE.name}`,
+  desc: 'Submit a fintech AI product for independent editorial review or claim an existing listing.',
+  canonical: `${SITE.domain}/submit-tool/`,
+  body: `<div class="wrap"><div class="section" style="max-width:760px;">
+    <p class="eyebrow">Editorial submission</p><h2 style="font-size:28px;">Submit or claim a fintech AI tool</h2>
+    <p style="color:var(--text2);margin:12px 0 22px;">Basic editorial consideration is free. Submitting does not guarantee inclusion or a positive review. For faster commercial visibility, see our <a href="/for-vendors/">vendor partnership options</a>.</p>
+    <div class="card"><h3>Send the information we need</h3><ul class="feature-list"><li>Product name and website</li><li>Primary finance use case</li><li>Target customer and pricing model</li><li>Your name, role and company email</li><li>Whether this is a new submission or listing correction</li></ul>
+    <a class="btn" href="${mailto('Tool submission / listing claim', 'Submission type: New tool / Claim existing listing\nProduct name:\nProduct URL:\nPrimary finance use case:\nTarget customer:\nPricing model:\nYour name and role:\nCompany email:\nAdditional notes:\n')}" data-commercial-action="tool_submission" data-offer="free_editorial">Open submission email</a></div>
+    <p class="trust-note">Use a company email when claiming an existing profile. We may request additional proof of ownership.</p>
+  </div></div>`,
+}));
+
+// Trust and monetization disclosure
+out('disclosure/index.html', layout({
+  title: `Editorial & Affiliate Disclosure | ${SITE.name}`,
+  desc: 'How FintechAI Directory handles editorial selection, sponsored placements and affiliate links.',
+  canonical: `${SITE.domain}/disclosure/`,
+  body: `<div class="wrap"><div class="section" style="max-width:760px;">
+    <h2>Editorial &amp; affiliate disclosure</h2>
+    <p style="margin:14px 0;color:var(--text2);">FintechAI Directory independently selects and describes tools based on relevance to real finance workflows. Vendors may pay for clearly labeled featured placement or sponsorship, but payment does not buy a positive verdict or an undisclosed ranking.</p>
+    <p style="margin:14px 0;color:var(--text2);">Some outbound links may become affiliate links. If a visitor signs up or purchases through one of those links, we may earn a commission at no additional cost to the visitor. Affiliate relationships do not change the price shown by the vendor.</p>
+    <p style="margin:14px 0;color:var(--text2);">Product capabilities and prices change. Readers should verify current terms with the vendor before purchasing. Vendors can <a href="/submit-tool/">request factual corrections</a>.</p>
+    <p style="margin:14px 0;color:var(--text2);">Questions about editorial policy or commercial partnerships: <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.</p>
+  </div></div>`,
 }));
 
 // 404
 out('404.html', layout({ title: 'Page Not Found', desc: 'Page not found', canonical: SITE.domain, body: `<div class="wrap"><div class="section" style="text-align:center;padding:80px 0;"><h2>404 — Page Not Found</h2><p style="margin-top:10px;"><a href="/">← Back to the directory</a></p></div></div>` }));
 
 // sitemap + robots
-const urls = [`${SITE.domain}/`, `${SITE.domain}/about/`,
+const urls = [`${SITE.domain}/`, `${SITE.domain}/about/`, `${SITE.domain}/for-vendors/`, `${SITE.domain}/submit-tool/`, `${SITE.domain}/disclosure/`,
   ...guides.map(g => `${SITE.domain}/best-ai-for/${g.slug}/`),
   ...categories.map(c => `${SITE.domain}/category/${c.slug}/`),
   ...tools.map(t => `${SITE.domain}/tool/${t.slug}/`)];
