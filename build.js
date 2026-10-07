@@ -48,7 +48,19 @@ const tools = parseCSV(fs.readFileSync(path.join(__dirname, 'data', 'tools.csv')
   .map(t => ({ ...t, slug: slugify(t.name), catSlug: slugify(t.category) }));
 
 const guides = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'guides.json'), 'utf8'));
+const partnersFile = path.join(__dirname, 'data', 'partners.json');
+const partners = fs.existsSync(partnersFile) ? JSON.parse(fs.readFileSync(partnersFile, 'utf8')) : {};
 const toolBySlug = Object.fromEntries(tools.map(t => [t.slug, t]));
+
+function commercialMeta(tool) {
+  const partner = partners[tool.slug] || {};
+  return {
+    url: partner.destination_url || tool.url,
+    type: partner.relationship || 'organic',
+    featured: partner.status === 'active' && partner.featured === true,
+    label: partner.label || '',
+  };
+}
 
 const categories = [...new Set(tools.map(t => t.category))].map(c => ({
   name: c, slug: slugify(c),
@@ -225,11 +237,11 @@ document.querySelectorAll('form.bd-form').forEach(function(form){
 </html>`;
 }
 
-const toolCard = t => `<a class="card" href="/tool/${t.slug}/" style="display:block;color:inherit;text-decoration:none;">
+const toolCard = t => { const commercial = commercialMeta(t); return `<a class="card" href="/tool/${t.slug}/" style="display:block;color:inherit;text-decoration:none;${commercial.featured ? 'border:2px solid var(--accent);' : ''}">
   <h3>${esc(t.name)}</h3>
   <p>${esc(t.short_description)}</p>
-  <span class="badge">${esc(t.category)}</span><span class="badge price">${esc(t.pricing)}</span>
-</a>`;
+  <span class="badge">${esc(t.category)}</span><span class="badge price">${esc(t.pricing)}</span>${commercial.featured ? '<span class="badge" style="margin-left:6px;">Sponsored</span>' : ''}
+</a>`; };
 
 // ---------- Output ----------
 const dist = path.join(__dirname, 'dist');
@@ -307,6 +319,7 @@ for (const c of categories) {
 
 // Tool pages
 for (const t of tools) {
+  const commercial = commercialMeta(t);
   const related = tools.filter(x => x.category === t.category && x.slug !== t.slug).slice(0, 3);
   out(`tool/${t.slug}/index.html`, layout({
     title: `${t.name} — AI for ${t.category} | ${SITE.name}`,
@@ -319,13 +332,13 @@ for (const t of tools) {
   <div class="tool-head">
     <div><h2 style="font-size:26px;">${esc(t.name)}</h2>
     <p style="color:var(--text2);max-width:640px;margin-top:6px;">${esc(t.short_description)}</p></div>
-    <a class="btn" href="${esc(t.url)}" target="_blank" rel="noopener nofollow" data-track="outbound_tool_click" data-tool-name="${esc(t.name)}" data-category="${esc(t.category)}" data-placement="tool_header">Visit Website →</a>
+    <a class="btn" href="${esc(commercial.url)}" target="_blank" rel="noopener nofollow${commercial.type !== 'organic' ? ' sponsored' : ''}" data-track="outbound_tool_click" data-tool-name="${esc(t.name)}" data-category="${esc(t.category)}" data-placement="tool_header" data-commercial-type="${esc(commercial.type)}">Visit Website →</a>
   </div>
   <table class="meta-table">
     <tr><td>Category</td><td><a href="/category/${t.catSlug}/">${esc(t.category)}</a></td></tr>
     <tr><td>Pricing</td><td>${esc(t.pricing)}</td></tr>
     <tr><td>Best for</td><td>${esc(t.target_users)}</td></tr>
-    <tr><td>Website</td><td><a href="${esc(t.url)}" rel="nofollow">${esc(t.url)}</a></td></tr>
+    <tr><td>Website</td><td><a href="${esc(commercial.url)}" rel="nofollow${commercial.type !== 'organic' ? ' sponsored' : ''}" data-track="outbound_tool_click" data-tool-name="${esc(t.name)}" data-category="${esc(t.category)}" data-placement="tool_table" data-commercial-type="${esc(commercial.type)}">${esc(t.url)}</a>${commercial.label ? ` <span class="badge">${esc(commercial.label)}</span>` : ''}</td></tr>
   </table>
   <div class="claim-box">
     <div><p style="font-weight:700;">Represent ${esc(t.name)}?</p><p style="font-size:13px;color:var(--text2);">Claim this listing to correct product details, add a verified profile or discuss featured placement.</p></div>
@@ -352,12 +365,12 @@ for (const g of guides) {
   <table class="meta-table"><tr><td style="width:auto"><b>Our picks at a glance</b></td><td></td></tr>
   ${g.picks.map(p => { const t = toolBySlug[p.tool]; return t ? `<tr><td>${esc(p.label)}</td><td><a href="/tool/${t.slug}/"><b>${esc(t.name)}</b></a></td></tr>` : ''; }).join('')}
   </table>
-  ${g.picks.map(p => { const t = toolBySlug[p.tool]; if (!t) return ''; return `
+  ${g.picks.map(p => { const t = toolBySlug[p.tool]; if (!t) return ''; const commercial = commercialMeta(t); return `
   <div class="card" style="margin:14px 0;">
     <h3 style="font-size:17px;">${esc(t.name)} — <span style="color:var(--accent);font-size:14px;">${esc(p.label)}</span></h3>
     <p style="font-size:13.5px;color:var(--text2);margin:8px 0;">${esc(p.verdict)}</p>
     <p style="font-size:12.5px;color:var(--text2);">Pricing: ${esc(t.pricing)} · Best for: ${esc(t.target_users)}</p>
-    <p style="margin-top:10px;"><a class="btn" style="padding:7px 16px;font-size:13px;" href="${esc(t.url)}" target="_blank" rel="noopener nofollow" data-track="outbound_tool_click" data-tool-name="${esc(t.name)}" data-category="${esc(t.category)}" data-placement="guide_pick">Visit ${esc(t.name)} →</a> <a href="/tool/${t.slug}/" style="margin-left:12px;font-size:13px;">Details</a></p>
+    <p style="margin-top:10px;"><a class="btn" style="padding:7px 16px;font-size:13px;" href="${esc(commercial.url)}" target="_blank" rel="noopener nofollow${commercial.type !== 'organic' ? ' sponsored' : ''}" data-track="outbound_tool_click" data-tool-name="${esc(t.name)}" data-category="${esc(t.category)}" data-placement="guide_pick" data-commercial-type="${esc(commercial.type)}">Visit ${esc(t.name)} →</a> <a href="/tool/${t.slug}/" style="margin-left:12px;font-size:13px;">Details</a></p>
   </div>`; }).join('')}
   <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:18px;margin:24px 0;">
     <p style="font-weight:600;font-size:14.5px;">📬 Get guides like this in your inbox</p>
