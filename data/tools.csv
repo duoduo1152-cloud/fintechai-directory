@@ -3,7 +3,7 @@ AlphaSense,https://www.alpha-sense.com,Research & Analysis,Enterprise,"AI-powere
 Hebbia,https://www.hebbia.ai,Research & Analysis,Enterprise,"AI agent platform (Matrix) for deep document analysis across filings, decks and data rooms.",Hedge funds / PE / IB,pending
 Kensho,https://kensho.com,Research & Analysis,Enterprise,"S&P Global's AI unit: NLP, transcription and entity-linking for financial data.",Institutions / data teams,pending
 Daloopa,https://daloopa.com,Research & Analysis,Paid,"AI-extracted fundamental data and auto-updating financial models from filings.",Buy-side / sell-side analysts,pending
-Fintool,https://fintool.com,Research & Analysis,Paid,"ChatGPT-style equity research copilot over SEC filings and earnings calls.",Equity analysts,pending
+Fintool,https://app.fintool.com,Research & Analysis,Acquired,"AI equity research copilot acquired by Microsoft in 2026; the former standalone product is no longer accepting new independent customers.",Equity analysts,verified_2026-10-13
 Rogo,https://rogo.ai,Research & Analysis,Enterprise,"AI analyst for investment banks and asset managers, trained on financial workflows.",IB / asset managers,pending
 Brightwave,https://brightwave.io,Research & Analysis,Paid,"AI research assistant generating investment research drafts from filings and news.",Investors / analysts,pending
 Fiscal.ai (FinChat),https://fiscal.ai,Research & Analysis,Freemium,"AI-assisted fundamental data terminal with conversational stock research.",Retail & professional investors,pending
@@ -86,9 +86,9 @@ TIFIN,https://tifin.com,Wealth Management,Enterprise,"AI platform ecosystem for 
 FP Alpha,https://fpalpha.com,Wealth Management,Paid,"AI extracts planning insights from tax returns, wills and insurance docs.",Financial planners,pending
 Holistiplan,https://www.holistiplan.com,Wealth Management,Paid,"Tax return OCR and planning scenario software for advisors.",Financial planners,pending
 Zocks,https://www.zocks.io,Wealth Management,Paid,"AI meeting assistant turning client conversations into notes and tasks for advisors.",Financial advisors,pending
-Jump,https://jumpapp.com,Wealth Management,Paid,"AI assistant automating advisor meeting prep, notes and compliance documentation.",Financial advisors,pending
+Jump,https://jump.ai,Wealth Management,Paid,"AI assistant automating advisor meeting prep, notes and compliance documentation.",Financial advisors,verified_2026-10-13
 Powder,https://powderfi.com,Wealth Management,Enterprise,"AI agents for wealth firms: prospecting docs, portfolio extraction, proposals.",RIAs / wealth firms,pending
-Runway,https://runway.com,FP&A & Accounting,Paid,"Modern business planning platform with AI scenario modeling.",Startups / finance teams,pending
+Runway,https://cfo.ai,FP&A & Accounting,Paid,"AI-native financial modeling and scenario planning platform, formerly known as Runway.",Startups / finance teams,verified_2026-10-13
 Abacum,https://www.abacum.ai,FP&A & Accounting,Enterprise,"FP&A platform with AI insights for mid-market finance teams.",FP&A teams,pending
 Aleph,https://www.getaleph.com,FP&A & Accounting,Enterprise,"AI-powered FP&A connecting live data to spreadsheets and models.",Finance teams,pending
 Numeric,https://www.numeric.io,FP&A & Accounting,Paid,"AI-assisted accounting close management and flux analysis.",Accounting teams,pending

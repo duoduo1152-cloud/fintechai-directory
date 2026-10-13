@@ -3,16 +3,16 @@
     "slug": "sec-filing-analysis",
     "title": "Best AI Tools for SEC Filing & Earnings Analysis",
     "intro": "Reading 10-Ks, 10-Qs and earnings transcripts is where analysts burn the most hours. A new generation of AI tools can extract, summarize and cross-reference filings in seconds. We compared the leading options by accuracy, coverage, workflow fit and price — from a buy-side perspective.",
-    "updated": "2026-06",
+    "updated": "2026-10",
     "picks": [
-      { "tool": "fintool", "label": "Best for individual analysts", "verdict": "Purpose-built for SEC filings with citation-backed answers. The fastest way to interrogate a 10-K without enterprise procurement. Pricing is accessible for a single seat." },
+      { "tool": "fiscal-ai-finchat", "label": "Best accessible starting point", "verdict": "Combines fundamental data with conversational stock research in a freemium product, making it easier to test an AI-assisted filing workflow before enterprise procurement." },
       { "tool": "hebbia", "label": "Best for institutions", "verdict": "Matrix handles hundreds of documents in parallel across data rooms and filings — the standard at large funds and banks, with a price tag and onboarding to match." },
       { "tool": "alphasense", "label": "Best all-in-one research platform", "verdict": "Combines filings with broker research, expert calls and news in one search. Strongest content moat; best when your team already pays for research aggregation." },
       { "tool": "daloopa", "label": "Best for model building", "verdict": "Doesn't summarize — it extracts every reported number with source links and pipes them into your Excel models. Complements, not replaces, the tools above." },
       { "tool": "quartr", "label": "Best free starting point", "verdict": "Earnings call audio, slides and transcripts with AI summaries. The free tier is enough for following a personal coverage list." }
     ],
     "faq": [
-      { "q": "Can AI tools be trusted for filing analysis?", "a": "Use tools that cite their sources. Citation-backed answers (Fintool, Hebbia, AlphaSense) let you verify every claim against the underlying document — treat uncited AI output as a draft, never as a fact." },
+      { "q": "Can AI tools be trusted for filing analysis?", "a": "Use tools that cite their sources. Citation-backed answers let you verify every claim against the underlying document — treat uncited AI output as a draft, never as a fact." },
       { "q": "What does this category cost?", "a": "Individual tools run $30–$100/month. Institutional platforms like Hebbia and AlphaSense are typically five-figure annual contracts negotiated per seat." },
       { "q": "Will these replace analysts?", "a": "No — they compress the extraction and first-read phase from hours to minutes. Judgment, modeling assumptions and thesis-building remain human work." }
     ]
