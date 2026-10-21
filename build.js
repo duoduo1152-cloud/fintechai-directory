@@ -59,6 +59,8 @@ function commercialMeta(tool) {
     type: partner.relationship || 'organic',
     featured: partner.status === 'active' && partner.featured === true,
     label: partner.label || '',
+    disclosure: partner.disclosure || '',
+    riskNotice: partner.risk_notice || '',
   };
 }
 
@@ -340,6 +342,7 @@ for (const t of tools) {
     <tr><td>Best for</td><td>${esc(t.target_users)}</td></tr>
     <tr><td>Website</td><td><a href="${esc(commercial.url)}" rel="nofollow${commercial.type !== 'organic' ? ' sponsored' : ''}" data-track="outbound_tool_click" data-tool-name="${esc(t.name)}" data-category="${esc(t.category)}" data-placement="tool_table" data-commercial-type="${esc(commercial.type)}">${esc(t.url)}</a>${commercial.label ? ` <span class="badge">${esc(commercial.label)}</span>` : ''}</td></tr>
   </table>
+  ${commercial.disclosure ? `<div class="trust-note"><b>Affiliate disclosure:</b> ${esc(commercial.disclosure)}${commercial.riskNotice ? `<br><b>Risk notice:</b> ${esc(commercial.riskNotice)}` : ''} <a href="/disclosure/">Learn how we handle affiliate links.</a></div>` : ''}
   <div class="claim-box">
     <div><p style="font-weight:700;">Represent ${esc(t.name)}?</p><p style="font-size:13px;color:var(--text2);">Claim this listing to correct product details, add a verified profile or discuss featured placement.</p></div>
     <a class="btn secondary" href="${mailto(`Claim ${t.name} listing`, `Company:\nYour name and role:\nProduct URL:\nRequested changes:\n\nPlease send this from your company email so we can verify ownership.`)}" data-commercial-action="claim_listing" data-offer="claim_${t.slug}">Claim this listing</a>
@@ -450,6 +453,7 @@ out('disclosure/index.html', layout({
     <p style="margin:14px 0;color:var(--text2);">FintechAI Directory independently selects and describes tools based on relevance to real finance workflows. Vendors may pay for clearly labeled featured placement or sponsorship, but payment does not buy a positive verdict or an undisclosed ranking.</p>
     <p style="margin:14px 0;color:var(--text2);">Some outbound links may become affiliate links. If a visitor signs up or purchases through one of those links, we may earn a commission at no additional cost to the visitor. Affiliate relationships do not change the price shown by the vendor.</p>
     <p style="margin:14px 0;color:var(--text2);">Product capabilities and prices change. Readers should verify current terms with the vendor before purchasing. Vendors can <a href="/submit-tool/">request factual corrections</a>.</p>
+    <p style="margin:14px 0;color:var(--text2);"><b>Investment and trading risk:</b> Information on this site is for product discovery and general educational purposes only. It is not investment advice, a recommendation, or a guarantee of performance. Trading and investing involve risk, including possible loss of principal.</p>
     <p style="margin:14px 0;color:var(--text2);">Questions about editorial policy or commercial partnerships: <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.</p>
   </div></div>`,
 }));
