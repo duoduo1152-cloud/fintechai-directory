@@ -7,5 +7,14 @@
     "featured": false,
     "disclosure": "We may earn a commission if you purchase through this link, at no additional cost to you.",
     "risk_notice": "Trading involves risk. Past performance and automated analysis do not guarantee future results."
+  },
+  "keeper": {
+    "status": "active",
+    "relationship": "affiliate",
+    "destination_url": "https://keepertax.go2cloud.org/aff_c?offer_id=25&aff_id=2142",
+    "label": "Affiliate link",
+    "featured": false,
+    "disclosure": "We may earn a commission if you start a free trial through this link, at no additional cost to you.",
+    "risk_notice": "Tax results depend on individual circumstances. Verify deductions and filing decisions with a qualified tax professional."
   }
 }
