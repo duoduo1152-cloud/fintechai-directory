@@ -169,8 +169,8 @@ footer{border-top:1px solid var(--border);padding:28px 0;margin-top:40px;font-si
 </div></header>
 ${body}
 <div style="background:#0f2a52;color:#fff;padding:40px 20px;text-align:center;">
-  <h2 style="font-size:20px;margin-bottom:6px;">Fintech AI Weekly</h2>
-  <p style="font-size:13.5px;opacity:.85;max-width:480px;margin:0 auto 16px;">New AI tools for finance, reviewed by a wealth-management insider. One email a week, no spam.</p>
+  <h2 style="font-size:20px;margin-bottom:6px;">Fintech AI Updates</h2>
+  <p style="font-size:13.5px;opacity:.85;max-width:480px;margin:0 auto 16px;">Occasional finance AI tool updates and buying guides. Subscribe for new editions when published.</p>
   <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" class="bd-form" data-newsletter-placement="footer" style="display:flex;gap:8px;max-width:420px;margin:0 auto;">
     <input type="email" name="email" required placeholder="you@work-email.com" style="flex:1;padding:11px 14px;border-radius:8px;border:none;font-size:14px;">
     <button type="submit" style="background:#10b981;color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;">Subscribe</button>
@@ -267,10 +267,10 @@ out('index.html', layout({
   <p>${tools.length}+ AI tools for research, trading, risk, compliance and wealth management — curated and reviewed by finance professionals, not bots.</p>
   <div class="search"><input id="q" type="search" placeholder="Search ${tools.length} tools… (e.g. 'earnings analysis', 'fraud detection')"></div>
   <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" class="bd-form" data-newsletter-placement="home_hero" style="display:flex;gap:8px;max-width:480px;margin:18px auto 0;">
-    <input type="email" name="email" required placeholder="Get new fintech AI tools weekly — your email" style="flex:1;padding:11px 14px;border-radius:8px;border:none;font-size:13.5px;">
+    <input type="email" name="email" required placeholder="Get finance AI updates — your email" style="flex:1;padding:11px 14px;border-radius:8px;border:none;font-size:13.5px;">
     <button type="submit" style="background:#10b981;color:#fff;border:none;padding:11px 18px;border-radius:8px;font-weight:600;font-size:13.5px;cursor:pointer;white-space:nowrap;">Subscribe</button>
   </form>
-  <p style="font-size:11.5px;opacity:.7;margin-top:8px;">Join Fintech AI Weekly · one email per week · unsubscribe anytime</p>
+  <p style="font-size:11.5px;opacity:.7;margin-top:8px;">Occasional updates · unsubscribe anytime</p>
 </div></div>
 <div class="wrap">
   <div class="section" id="categories"><h2>Browse by Category</h2>
@@ -405,7 +405,7 @@ out('about/index.html', layout({
 // Vendor monetization page
 out('for-vendors/index.html', layout({
   title: `Reach Finance Buyers — Vendor Partnerships | ${SITE.name}`,
-  desc: 'Put your fintech AI product in front of finance professionals comparing tools. Featured listings, sponsored buyer guides and launch packages.',
+  desc: 'Explore a fixed-scope featured listing for your finance AI product. Email-based coordination, transparent sponsorship and measured outbound clicks.',
   canonical: `${SITE.domain}/for-vendors/`,
   schema: { '@context': 'https://schema.org', '@type': 'Service', name: 'FintechAI Directory vendor partnerships', provider: { '@type': 'Organization', name: SITE.name }, areaServed: 'Worldwide' },
   body: `<div class="commercial-hero"><div class="wrap">
@@ -416,21 +416,16 @@ out('for-vendors/index.html', layout({
     <p class="trust-note">We do not sell rankings or positive verdicts. Sponsored placements are labeled, and editorial inclusion remains independent.</p>
   </div></div>
   <div class="wrap"><div class="section">
-    <h2>Founding partner offers</h2>
-    <p style="color:var(--text2);max-width:720px;">Standardized launch packages for fintech AI vendors. Founding prices apply to the first 10 paying partners; every paid campaign includes click tracking and a simple performance summary.</p>
-    <div class="pricing-grid">
-      <div class="price-card"><p class="eyebrow">Verified profile</p><h3>Claim &amp; enrich</h3><p class="price">$149 <small>/ year</small></p><ul class="feature-list"><li>Verified company ownership</li><li>Logo, screenshots and enriched profile</li><li>Priority factual updates</li><li>Tracked outbound clicks</li></ul><a class="btn secondary" href="${mailto('Verified profile — $149/year', 'Company:\nProduct URL:\nYour name and role:\nCompany email:\nPreferred launch date:\n')}" data-commercial-action="vendor_offer" data-offer="verified_149_year">Request verified profile</a></div>
-      <div class="price-card featured"><p class="eyebrow">Most popular</p><h3>Founding featured listing</h3><p class="price">$299 <small>/ quarter</small><span class="old-price">$399</span></p><ul class="feature-list"><li>Labeled priority placement</li><li>Category and relevant discovery pages</li><li>Verified profile included</li><li>Tracked outbound clicks</li><li>Quarterly performance summary</li></ul><a class="btn" href="${mailto('Founding featured listing — $299/quarter', 'Company:\nProduct URL:\nPreferred category:\nTarget customer:\nCampaign timing:\n')}" data-commercial-action="vendor_offer" data-offer="featured_299_quarter">Reserve a founding placement</a></div>
-      <div class="price-card"><p class="eyebrow">Buyer guide sponsor</p><h3>High-intent context</h3><p class="price">$699 <small>/ guide</small><span class="old-price">$999</span></p><ul class="feature-list"><li>Clearly labeled sponsor block</li><li>CTA in one relevant buyer guide</li><li>Verified profile included</li><li>Newsletter mention when scheduled</li><li>Tracked clicks and performance summary</li></ul><a class="btn secondary" href="${mailto('Buyer guide sponsorship — $699', 'Company:\nProduct URL:\nPreferred guide/category:\nKey use case:\nCampaign timing:\n')}" data-commercial-action="vendor_offer" data-offer="guide_699">Discuss a guide</a></div>
-    </div>
-    <div class="trust-note"><b>Optional add-on:</b> a clearly labeled sponsored placement in one issue of Fintech AI Weekly is available for $149, subject to audience fit and editorial review. Traffic and subscriber counts are reported as measured; no impression, click or lead volume is guaranteed.</div>
+    <h2>A simple featured placement</h2>
+    <p style="color:var(--text2);max-width:720px;">An independently operated directory with limited partner availability. Coordination happens by email; no sales call is required. We confirm scope and availability before accepting payment.</p>
+    <div class="price-card featured" style="max-width:620px;margin-top:22px;"><p class="eyebrow">Fixed-scope pilot</p><h3>Featured listing</h3><p class="price">$299 <small>/ 90 days</small></p><ul class="feature-list"><li>One labeled sponsored placement in an agreed category</li><li>One factual profile update using your supplied details</li><li>Tracked outbound product link</li><li>One performance summary at the end of the placement</li><li>No automatic renewal</li></ul><a class="btn" href="${mailto('Featured listing inquiry — $299 / 90 days', 'Company:\nProduct URL:\nPreferred category:\nTarget customer:\nPreferred start date:\n')}" data-commercial-action="vendor_offer" data-offer="featured_299_90_days">Check availability by email</a></div>
+    <p class="trust-note">The placement URL, start and end dates, and payment instructions are agreed by email. Traffic, clicks, leads and sales are not guaranteed. Basic editorial submissions and factual corrections remain free.</p>
   </div>
   <div class="section" style="max-width:760px;"><h2>How it works</h2>
     <div class="grid"><div class="card"><h3>1. Relevance check</h3><p>We confirm the product fits a finance workflow and choose the right audience and page.</p></div><div class="card"><h3>2. Transparent placement</h3><p>Sponsored elements are labeled. Your team approves factual product details, not our editorial judgment.</p></div><div class="card"><h3>3. Measured response</h3><p>We report tracked clicks and campaign placement. No inflated traffic promises or invented leads.</p></div></div>
-    <div class="claim-box"><div><h3>Need a launch package?</h3><p style="font-size:13.5px;color:var(--text2);">We can combine a featured listing, buyer-guide sponsorship and newsletter placement after audience fit is confirmed.</p></div><a class="btn" href="${mailto('Custom launch package inquiry', 'Company:\nProduct URL:\nLaunch date:\nTarget buyer:\nBudget range:\n')}" data-commercial-action="sponsor_inquiry" data-offer="custom_package">Request a package</a></div>
     <h2 style="font-size:20px;margin-top:34px;">Commercial FAQ</h2>
     <div class="card"><h3>Can we pay to change your verdict or ranking?</h3><p>No. Paid placements are labeled and do not purchase a positive review, undisclosed ranking or removal of factual criticism.</p></div>
-    <div class="card" style="margin-top:12px;"><h3>How do we start?</h3><p>Choose a package and send the inquiry from a company email. We verify fit, confirm the deliverables and issue payment instructions before anything is published.</p></div>
+    <div class="card" style="margin-top:12px;"><h3>How do we start?</h3><p>Send your product URL, preferred category and timing from a company email. We review inquiries in batches and confirm availability, deliverables and payment instructions by email.</p></div>
     <div class="card" style="margin-top:12px;"><h3>What reporting is included?</h3><p>Paid campaigns receive the live placement URL and a simple report of measured outbound clicks. We do not promise impressions, leads or conversions.</p></div>
   </div></div>`,
 }));
