@@ -279,6 +279,7 @@ out('index.html', layout({
   </div>
   <div class="section"><h2>Buying Guides</h2>
     <p style="margin:12px 0;"><a href="/reviews/trendspider/">TrendSpider review: features, costs and workflow fit →</a></p>
+    <p style="margin:12px 0;"><a href="/reviews/keeper/">Keeper Tax review: US freelancer plans and filing limits →</a></p>
     <div class="grid">${guides.map(g => `<a class="card" href="/best-ai-for/${g.slug}/" style="display:block;color:inherit;text-decoration:none;"><h3>${esc(g.title)}</h3><p>${esc(g.intro.slice(0, 120))}…</p><span class="badge">Guide · Updated ${esc(g.updated)}</span></a>`).join('')}</div>
   </div>
   <div class="claim-box">
@@ -319,6 +320,7 @@ for (const c of categories) {
 <div class="section"><h2>AI Tools for ${esc(c.name)}</h2>
 <p style="color:var(--text2);font-size:14.5px;margin-bottom:20px;">${c.tools.length} tools in this category, curated for finance professionals.</p>
 ${c.tools.some(t => t.slug === 'trendspider') ? '<p style="margin-bottom:20px;"><a href="/reviews/trendspider/">Read our TrendSpider buying review →</a></p>' : ''}
+${c.tools.some(t => t.slug === 'keeper') ? '<p style="margin-bottom:20px;"><a href="/reviews/keeper/">Read our Keeper Tax buying review →</a></p>' : ''}
 <div class="grid">${c.tools.map(toolCard).join('\n')}</div></div></div>`,
   }));
 }
@@ -342,6 +344,7 @@ for (const t of tools) {
   </div>
   <table class="meta-table">
     ${t.slug === 'trendspider' ? '<tr><td>Buying review</td><td><a href="/reviews/trendspider/">Features, costs, limits and evaluation checklist</a></td></tr>' : ''}
+    ${t.slug === 'keeper' ? '<tr><td>Buying review</td><td><a href="/reviews/keeper/">US freelancer plans, pricing and filing limits</a></td></tr>' : ''}
     <tr><td>Category</td><td><a href="/category/${t.catSlug}/">${esc(t.category)}</a></td></tr>
     <tr><td>Pricing</td><td>${esc(t.pricing)}</td></tr>
     <tr><td>Best for</td><td>${esc(t.target_users)}</td></tr>
@@ -426,6 +429,34 @@ out('reviews/trendspider/index.html', layout({
   </article></div>`,
 }));
 
+const keeperCommercial = commercialMeta(toolBySlug.keeper);
+out('reviews/keeper/index.html', layout({
+  title: `Keeper Tax Review: US Freelancer Plans, Costs & Limits | ${SITE.name}`,
+  desc: 'A documentation-based Keeper Tax review for US freelancers: expense tracking versus filing, plan prices, exclusions and questions to ask before subscribing.',
+  canonical: `${SITE.domain}/reviews/keeper/`,
+  body: `<div class="wrap"><article class="section" style="max-width:760px;">
+    <p class="breadcrumb"><a href="/">Home</a> › <a href="/category/tax/">Tax tools</a> › Keeper review</p>
+    <h1>Keeper Tax review: expense tracking or filing support?</h1>
+    <p style="color:var(--text2);margin:16px 0;">Sources checked October 22, 2026. Documentation-based assessment; we have not connected a bank account or filed a return using Keeper. This page evaluates software fit, not your tax position.</p>
+    <p class="trust-note">Affiliate disclosure: ${esc(keeperCommercial.disclosure)} <a href="/disclosure/">Editorial policy</a>.</p>
+    <h2 style="margin-top:26px;">Who should consider it?</h2>
+    <p>Our assessment: Keeper is worth evaluating for US freelancers and self-employed individuals who want expense records and tax filing in one workflow. Someone who already has an accountant may only need exportable expense records. International or expatriate filers should confirm eligibility directly before purchasing.</p>
+    <h2 style="margin-top:26px;">What does it offer?</h2>
+    <p>Keeper presents itself as a tax platform combining AI and human accountants, with tools for tracking expenses and preparing returns. Its <a href="https://www.keepertax.com/" target="_blank" rel="noopener">official website</a> describes the current product. Automated suggestions are a starting point for review; this assessment does not verify their accuracy or any advertised savings.</p>
+    <h2 style="margin-top:26px;">Compare the plans by the job you need done</h2>
+    <p>The <a href="https://help.keepertax.com/hc/en-us/articles/17333793372055-Subscriptions" target="_blank" rel="noopener">official subscription guide</a> lists the following prices. Confirm current checkout terms before paying.</p>
+    <table class="meta-table"><tr><th>Plan</th><th>Listed price</th><th>Decision point</th></tr><tr><td>Only deductions</td><td>$20/month</td><td>Expense tracking and exports; filing is excluded.</td></tr><tr><td>Standard</td><td>$199/year</td><td>Tracking plus tax filing.</td></tr><tr><td>Premium</td><td>$399/year</td><td>Additional support such as amendments, prior-year returns and quarterly tax assistance.</td></tr></table>
+    <p>Premium does not include S-Corp or partnership filing, expat taxes or additional bookkeeping such as P&amp;L preparation. Those needs require separate scope confirmation. The subscription guide also describes exceptions and add-on fees.</p>
+    <h2 style="margin-top:26px;">Filing scope matters more than the headline price</h2>
+    <p>The <a href="https://help.keepertax.com/hc/en-us/articles/16758879143959-Filing-with-Keeper" target="_blank" rel="noopener">filing guide</a> describes the $199 annual package as Filing + Deductions and includes the current year's federal return and up to two state returns while subscribed. Business returns use separate services. Ask Keeper to confirm your forms, states and tax year before selecting a plan; the monthly expense plan alone does not provide filing.</p>
+    <h2 style="margin-top:26px;">Questions to resolve before subscribing</h2>
+    <ol style="padding-left:24px;margin:16px 0;"><li>Do you want records for an existing accountant, or a filing service?</li><li>Are your tax residency, income forms, business structure and states supported?</li><li>Does the quoted price include every return and additional service you need?</li><li>Can you export your records in a usable format?</li><li>What are the renewal, cancellation and trial terms shown at checkout?</li></ol>
+    <p>Our recommendation: choose by confirmed filing scope and recordkeeping needs. Do not purchase on an assumed refund or deduction amount. For individual filing decisions, consult a qualified tax professional.</p>
+    <p style="margin:24px 0;"><a class="btn" href="${esc(keeperCommercial.url)}" target="_blank" rel="noopener nofollow sponsored" data-track="outbound_tool_click" data-tool-name="Keeper" data-category="Tax" data-placement="review_verdict" data-commercial-type="affiliate">Explore Keeper — affiliate link</a></p>
+    <p><a href="/tool/keeper/">Keeper directory profile</a> · <a href="/category/tax/">Browse tax tools</a></p>
+  </article></div>`,
+}));
+
 // About
 out('about/index.html', layout({
   title: `About — ${SITE.name}`,
@@ -502,6 +533,7 @@ out('404.html', layout({ title: 'Page Not Found', desc: 'Page not found', canoni
 // sitemap + robots
 const urls = [`${SITE.domain}/`, `${SITE.domain}/about/`, `${SITE.domain}/for-vendors/`, `${SITE.domain}/submit-tool/`, `${SITE.domain}/disclosure/`,
   `${SITE.domain}/reviews/trendspider/`,
+  `${SITE.domain}/reviews/keeper/`,
   ...guides.map(g => `${SITE.domain}/best-ai-for/${g.slug}/`),
   ...categories.map(c => `${SITE.domain}/category/${c.slug}/`),
   ...tools.map(t => `${SITE.domain}/tool/${t.slug}/`)];
