@@ -186,6 +186,7 @@ function currentPageType(){
   var p = window.location.pathname;
   if (p.indexOf('/tool/') === 0) return 'tool';
   if (p.indexOf('/best-ai-for/') === 0) return 'guide';
+  if (p.indexOf('/reviews/') === 0) return 'review';
   if (p.indexOf('/category/') === 0) return 'category';
   if (p.indexOf('/about/') === 0) return 'about';
   return 'home';
@@ -277,6 +278,7 @@ out('index.html', layout({
     <div class="catlist">${categories.map(c => `<a href="/category/${c.slug}/">${esc(c.name)} (${c.tools.length})</a>`).join('')}</div>
   </div>
   <div class="section"><h2>Buying Guides</h2>
+    <p style="margin:12px 0;"><a href="/reviews/trendspider/">TrendSpider review: features, costs and workflow fit →</a></p>
     <div class="grid">${guides.map(g => `<a class="card" href="/best-ai-for/${g.slug}/" style="display:block;color:inherit;text-decoration:none;"><h3>${esc(g.title)}</h3><p>${esc(g.intro.slice(0, 120))}…</p><span class="badge">Guide · Updated ${esc(g.updated)}</span></a>`).join('')}</div>
   </div>
   <div class="claim-box">
@@ -316,6 +318,7 @@ for (const c of categories) {
 <p class="breadcrumb"><a href="/">Home</a> › ${esc(c.name)}</p>
 <div class="section"><h2>AI Tools for ${esc(c.name)}</h2>
 <p style="color:var(--text2);font-size:14.5px;margin-bottom:20px;">${c.tools.length} tools in this category, curated for finance professionals.</p>
+${c.tools.some(t => t.slug === 'trendspider') ? '<p style="margin-bottom:20px;"><a href="/reviews/trendspider/">Read our TrendSpider buying review →</a></p>' : ''}
 <div class="grid">${c.tools.map(toolCard).join('\n')}</div></div></div>`,
   }));
 }
@@ -338,6 +341,7 @@ for (const t of tools) {
     <a class="btn" href="${esc(commercial.url)}" target="_blank" rel="noopener nofollow${commercial.type !== 'organic' ? ' sponsored' : ''}" data-track="outbound_tool_click" data-tool-name="${esc(t.name)}" data-category="${esc(t.category)}" data-placement="tool_header" data-commercial-type="${esc(commercial.type)}">Visit Website →</a>
   </div>
   <table class="meta-table">
+    ${t.slug === 'trendspider' ? '<tr><td>Buying review</td><td><a href="/reviews/trendspider/">Features, costs, limits and evaluation checklist</a></td></tr>' : ''}
     <tr><td>Category</td><td><a href="/category/${t.catSlug}/">${esc(t.category)}</a></td></tr>
     <tr><td>Pricing</td><td>${esc(t.pricing)}</td></tr>
     <tr><td>Best for</td><td>${esc(t.target_users)}</td></tr>
@@ -388,6 +392,39 @@ for (const g of guides) {
 </div></div>`,
   }));
 }
+
+// Source-backed buying review; commercial URL comes from the shared partner record.
+const trendspider = toolBySlug.trendspider;
+const trendCommercial = commercialMeta(trendspider);
+out('reviews/trendspider/index.html', layout({
+  title: `TrendSpider Review: Features, Costs & Who It Fits | ${SITE.name}`,
+  desc: 'A documentation-based TrendSpider review covering charting, Sidekick AI, backtesting limits, extra costs and a practical evaluation checklist.',
+  canonical: `${SITE.domain}/reviews/trendspider/`,
+  body: `<div class="wrap"><article class="section" style="max-width:760px;">
+    <p class="breadcrumb"><a href="/">Home</a> › <a href="/category/trading-quant/">Trading &amp; Quant</a> › TrendSpider review</p>
+    <h1>TrendSpider review: is it a fit for your trading workflow?</h1>
+    <p style="color:var(--text2);margin:16px 0;">Sources checked October 22, 2026. This is a documentation-based assessment, not a hands-on performance test. We have not verified strategy returns, execution reliability or time savings.</p>
+    <p class="trust-note">Affiliate disclosure: ${esc(trendCommercial.disclosure)} <a href="/disclosure/">Editorial policy</a>.</p>
+    <h2 style="margin-top:26px;">Quick assessment</h2>
+    <p>Worth shortlisting if you already use rule-based technical analysis and want charting, screening and strategy development in one workspace. Our assessment: occasional investors and readers seeking ready-made investment decisions should first consider whether they need a dedicated trading subscription.</p>
+    <h2 style="margin-top:26px;">What does the platform do?</h2>
+    <p>TrendSpider combines charting, scanners, backtesting, alerts and trading bots. It supports some broker connections, but assets and order processing remain with your broker. Availability depends on the connection and instruments. Check these against your actual workflow in the <a href="https://trendspider.com/product/" rel="noopener" target="_blank">official product overview</a>.</p>
+    <table class="meta-table"><tr><th>Workflow</th><th>Question to resolve before purchase</th></tr><tr><td>Chart analysis</td><td>Can you reproduce your existing setup and inspect the result?</td></tr><tr><td>Backtesting</td><td>Does your plan cover the timeframe and history your rules require?</td></tr><tr><td>Monitoring</td><td>Are alert capacity and duration sufficient for your watchlist?</td></tr><tr><td>Execution</td><td>Is your broker, instrument and intended order workflow supported?</td></tr></table>
+    <h2 style="margin-top:26px;">What Sidekick AI adds</h2>
+    <p>The official documentation describes an assistant for research and strategy workflows. Customers receive 25 messages per calendar month; additional packages govern higher allowances and access to frontier models. Treat generated explanations and rules as drafts to inspect. See <a href="https://help.trendspider.com/kb/sidekick/trendspider-sidekick" rel="noopener" target="_blank">Sidekick documentation</a>.</p>
+    <h2 style="margin-top:26px;">Pricing: compare the whole workflow cost</h2>
+    <p>The pricing page lists Standard, Premium, Enhanced and Advanced. Capacity differs across plans. At our check, Standard displayed one-minute charting but two-hour minimum backtesting and scanning intervals: chart resolution does not establish testing resolution. The page also lists paid data and AI upgrades. Promotions and billing cycles affect prices, so check the initial charge, renewal charge and required extras in the <a href="https://trendspider.com/pricing/" rel="noopener" target="_blank">live plan comparison</a> before paying.</p>
+    <h2 style="margin-top:26px;">Automation needs a separate evaluation</h2>
+    <p>Strategy bots can send notifications and webhooks for execution integrations. A working historical test does not establish safe live operation. Start with alerts and verify signal handling before considering execution. Consult the <a href="https://help.trendspider.com/kb/trading-bots/trading-bots" rel="noopener" target="_blank">bot setup documentation</a> for prerequisites.</p>
+    <h2 style="margin-top:26px;">Billing details to check</h2>
+    <p>The published policy distinguishes base subscriptions from trial fees, data packages and add-ons. Cancellation alone does not issue a refund; the policy includes time limits and exclusions. Read the <a href="https://help.trendspider.com/kb/account-management/billing-and-refund-policy" rel="noopener" target="_blank">current billing and refund policy</a> before subscribing.</p>
+    <h2 style="margin-top:26px;">A practical evaluation checklist</h2>
+    <ol style="padding-left:24px;margin:16px 0;"><li>Choose one setup you already understand and one relevant watchlist.</li><li>Write down the required timeframe, history, alerts and data coverage.</li><li>Check that the selected plan supports all four.</li><li>Inspect generated rules, entries and exits rather than only the headline backtest result.</li><li>Record the full renewal cost and cancellation date before purchase.</li></ol>
+    <p>Our recommendation is to evaluate workflow fit before paying for additional capacity. This review does not establish profitability. Trading can result in loss of principal.</p>
+    <p style="margin:24px 0;"><a class="btn" href="${esc(trendCommercial.url)}" target="_blank" rel="noopener nofollow sponsored" data-track="outbound_tool_click" data-tool-name="TrendSpider" data-category="Trading &amp; Quant" data-placement="review_verdict" data-commercial-type="affiliate">Explore TrendSpider — affiliate link</a></p>
+    <p><a href="/tool/trendspider/">TrendSpider directory profile</a> · <a href="/category/trading-quant/">Browse trading tools</a></p>
+  </article></div>`,
+}));
 
 // About
 out('about/index.html', layout({
@@ -464,6 +501,7 @@ out('404.html', layout({ title: 'Page Not Found', desc: 'Page not found', canoni
 
 // sitemap + robots
 const urls = [`${SITE.domain}/`, `${SITE.domain}/about/`, `${SITE.domain}/for-vendors/`, `${SITE.domain}/submit-tool/`, `${SITE.domain}/disclosure/`,
+  `${SITE.domain}/reviews/trendspider/`,
   ...guides.map(g => `${SITE.domain}/best-ai-for/${g.slug}/`),
   ...categories.map(c => `${SITE.domain}/category/${c.slug}/`),
   ...tools.map(t => `${SITE.domain}/tool/${t.slug}/`)];
