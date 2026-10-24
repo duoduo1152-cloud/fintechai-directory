@@ -325,6 +325,14 @@ ${c.tools.some(t => t.slug === 'keeper') ? '<p style="margin-bottom:20px;"><a hr
   }));
 }
 
+// Collection URL previously discovered by Google; provide a useful destination.
+out('tool/index.html', layout({
+  title: `All Finance AI Tools by Category | ${SITE.name}`,
+  desc: 'Browse the finance AI tool directory by workflow: research, trading, tax, financial planning, compliance and more.',
+  canonical: `${SITE.domain}/tool/`,
+  body: `<div class="wrap"><div class="section"><p class="breadcrumb"><a href="/">Home</a> › All tools</p><h1>All finance AI tools</h1><p style="margin:16px 0;color:var(--text2);">Browse ${tools.length} products across ${categories.length} finance workflows. Open a profile for product details and relevant alternatives.</p><div class="catlist">${categories.map(c => `<a href="/category/${c.slug}/">${esc(c.name)} (${c.tools.length})</a>`).join('')}</div><p style="margin:18px 0;"><a href="/reviews/trendspider/">TrendSpider buying review</a> · <a href="/reviews/keeper/">Keeper Tax buying review</a></p><div class="grid">${tools.map(toolCard).join('\n')}</div></div></div>`,
+}));
+
 // Tool pages
 for (const t of tools) {
   const commercial = commercialMeta(t);
@@ -532,6 +540,7 @@ out('404.html', layout({ title: 'Page Not Found', desc: 'Page not found', canoni
 
 // sitemap + robots
 const urls = [`${SITE.domain}/`, `${SITE.domain}/about/`, `${SITE.domain}/for-vendors/`, `${SITE.domain}/submit-tool/`, `${SITE.domain}/disclosure/`,
+  `${SITE.domain}/tool/`,
   `${SITE.domain}/reviews/trendspider/`,
   `${SITE.domain}/reviews/keeper/`,
   ...guides.map(g => `${SITE.domain}/best-ai-for/${g.slug}/`),
