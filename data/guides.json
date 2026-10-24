@@ -2,19 +2,28 @@
   {
     "slug": "sec-filing-analysis",
     "title": "Best AI Tools for SEC Filing & Earnings Analysis",
-    "intro": "Reading 10-Ks, 10-Qs and earnings transcripts is where analysts burn the most hours. A new generation of AI tools can extract, summarize and cross-reference filings in seconds. We compared the leading options by accuracy, coverage, workflow fit and price — from a buy-side perspective.",
-    "updated": "2026-10",
+    "intro": "Compare AI tools for SEC filings and earnings research by the work you need done: extracting model-ready numbers, comparing company disclosures, analyzing document sets or searching a broader research library. Start with source traceability and coverage before comparing subscription prices.",
+    "description": "Compare Daloopa, Quartr, Hebbia and AlphaSense for SEC filings and earnings research: workflow fit, source checks, pricing questions and a pilot checklist.",
+    "updated": "2026-10-24",
+    "methodology": "This is a documentation-based shortlist, not a hands-on accuracy benchmark. Official product materials were checked on October 24, 2026. Workflow labels reflect our editorial assessment, not measured performance rankings. Product coverage and plan entitlements need confirmation with each vendor. Fiscal.ai remains in the directory but is not included in this refreshed comparison because its official page could not be rechecked during this update.",
     "picks": [
-      { "tool": "fiscal-ai-finchat", "label": "Best accessible starting point", "verdict": "Combines fundamental data with conversational stock research in a freemium product, making it easier to test an AI-assisted filing workflow before enterprise procurement." },
-      { "tool": "hebbia", "label": "Best for institutions", "verdict": "Matrix handles hundreds of documents in parallel across data rooms and filings — the standard at large funds and banks, with a price tag and onboarding to match." },
-      { "tool": "alphasense", "label": "Best all-in-one research platform", "verdict": "Combines filings with broker research, expert calls and news in one search. Strongest content moat; best when your team already pays for research aggregation." },
-      { "tool": "daloopa", "label": "Best for model building", "verdict": "Doesn't summarize — it extracts every reported number with source links and pipes them into your Excel models. Complements, not replaces, the tools above." },
-      { "tool": "quartr", "label": "Best free starting point", "verdict": "Earnings call audio, slides and transcripts with AI summaries. The free tier is enough for following a personal coverage list." }
+      { "tool": "daloopa", "label": "Model-ready financial data", "verdict": "Daloopa documents structured financial data linked to source filings, with Data Sheets, an Excel add-in and API access. Shortlist it when updating model inputs is the main bottleneck.", "check": "Ask for your actual tickers, historical periods and segment KPIs. Test units, restatements and the source link behind each selected data point.", "source_url": "https://docs.daloopa.com/docs/overview", "source_label": "Daloopa product documentation" },
+      { "tool": "quartr", "label": "Earnings and first-party IR research", "verdict": "Quartr Pro AI chat searches company transcripts, filings and presentations, with links to original document pages. Consider it for tracking management commentary across reporting periods.", "check": "Confirm that the requested AI, search and export features belong to the plan you are considering. Do not assume free access includes the Pro workflow.", "source_url": "https://quartr.com/features/ai-chat", "source_label": "Quartr Pro AI chat" },
+      { "tool": "hebbia", "label": "Document-set and team analysis", "verdict": "Hebbia describes structured analysis across proprietary documents and public research, with citations linked to source material. Consider it when a team needs to compare a substantial document collection.", "check": "Pilot on your own permitted documents. Inspect cited excerpts, missing answers, permissions and the review effort needed before circulating outputs.", "source_url": "https://www.hebbia.com/blog/5-ways-equity-research-teams-use-hebbia-to-drive-speed-and-insight", "source_label": "Hebbia equity-research workflows" },
+      { "tool": "alphasense", "label": "Broader institutional research workflow", "verdict": "AlphaSense positions its platform around generative search, deep research, financial data and internal knowledge. Consider it when filing analysis is one part of a larger institutional research process.", "check": "Request a demonstration using the exact sources you need. Confirm content entitlements, internal-data access and export options in the proposed contract.", "source_url": "https://www.alpha-sense.com/platform/", "source_label": "AlphaSense platform overview" }
+    ],
+    "checklist": [
+      "Select one company and two reporting periods; write down the same five factual questions for every trial.",
+      "Include one numerical question, one segment change, one management-commentary comparison and one question the documents do not answer.",
+      "Check each answer against the original filing or transcript; record source-link quality, period, units and any unsupported claims.",
+      "Record the time spent verifying and correcting outputs, not just the time spent generating them.",
+      "Confirm total cost, coverage, data rights, security requirements and cancellation terms before subscribing."
     ],
     "faq": [
-      { "q": "Can AI tools be trusted for filing analysis?", "a": "Use tools that cite their sources. Citation-backed answers let you verify every claim against the underlying document — treat uncited AI output as a draft, never as a fact." },
-      { "q": "What does this category cost?", "a": "Individual tools run $30–$100/month. Institutional platforms like Hebbia and AlphaSense are typically five-figure annual contracts negotiated per seat." },
-      { "q": "Will these replace analysts?", "a": "No — they compress the extraction and first-read phase from hours to minutes. Judgment, modeling assumptions and thesis-building remain human work." }
+      { "q": "Which tool should I start with?", "a": "Choose by workflow: structured numbers for models, company commentary, document-set analysis or a broader research library. Trial your required companies and documents before choosing a plan." },
+      { "q": "Can I read SEC filings without a paid AI tool?", "a": "Yes. SEC EDGAR provides free public access to filings. A paid tool should justify its cost through a workflow you can verify, such as extraction, comparison or monitoring." },
+      { "q": "What does this category cost?", "a": "Check current vendor pricing or obtain a written quote. Total cost can depend on seats, document and company coverage, AI usage, data entitlements and exports. This guide does not infer enterprise contract prices." },
+      { "q": "Do source citations guarantee an accurate answer?", "a": "No. A citation may point to a real document while the answer uses the wrong period, unit or interpretation. Inspect the cited text and recompute important figures before using an answer in research." }
     ]
   },
   {

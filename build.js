@@ -373,14 +373,15 @@ for (const g of guides) {
   const year = new Date().getFullYear();
   out(`best-ai-for/${g.slug}/index.html`, layout({
     title: `${g.title} (${year}) — ${SITE.name}`,
-    desc: g.intro.slice(0, 155),
+    desc: g.description || g.intro.slice(0, 155),
     canonical: `${SITE.domain}/best-ai-for/${g.slug}/`,
     schema: { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
     body: `<div class="wrap">
 <p class="breadcrumb"><a href="/">Home</a> › Guides › ${esc(g.title)}</p>
 <div class="section" style="max-width:760px;">
-  <h2 style="font-size:26px;">${esc(g.title)} <span style="font-size:14px;color:var(--text2);font-weight:400;">(Updated ${esc(g.updated)})</span></h2>
+  <h1 style="font-size:26px;">${esc(g.title)} <span style="font-size:14px;color:var(--text2);font-weight:400;">(Updated ${esc(g.updated)})</span></h1>
   <p style="color:var(--text2);margin:14px 0 24px;">${esc(g.intro)}</p>
+  ${g.methodology ? `<p class="trust-note">${esc(g.methodology)}</p><p style="margin:16px 0;">Start with the original documents: <a href="https://www.sec.gov/search-filings" target="_blank" rel="noopener">SEC EDGAR provides free filing access</a>. Use it to verify vendor outputs.</p>` : ''}
   <table class="meta-table"><tr><td style="width:auto"><b>Our picks at a glance</b></td><td></td></tr>
   ${g.picks.map(p => { const t = toolBySlug[p.tool]; return t ? `<tr><td>${esc(p.label)}</td><td><a href="/tool/${t.slug}/"><b>${esc(t.name)}</b></a></td></tr>` : ''; }).join('')}
   </table>
@@ -388,9 +389,12 @@ for (const g of guides) {
   <div class="card" style="margin:14px 0;">
     <h3 style="font-size:17px;">${esc(t.name)} — <span style="color:var(--accent);font-size:14px;">${esc(p.label)}</span></h3>
     <p style="font-size:13.5px;color:var(--text2);margin:8px 0;">${esc(p.verdict)}</p>
+    ${p.check ? `<p style="font-size:13.5px;margin:8px 0;"><b>Before buying:</b> ${esc(p.check)}</p>` : ''}
+    ${p.source_url ? `<p style="font-size:12.5px;margin:8px 0;"><a href="${esc(p.source_url)}" target="_blank" rel="noopener">Source: ${esc(p.source_label)}</a></p>` : ''}
     <p style="font-size:12.5px;color:var(--text2);">Pricing: ${esc(t.pricing)} · Best for: ${esc(t.target_users)}</p>
     <p style="margin-top:10px;"><a class="btn" style="padding:7px 16px;font-size:13px;" href="${esc(commercial.url)}" target="_blank" rel="noopener nofollow${commercial.type !== 'organic' ? ' sponsored' : ''}" data-track="outbound_tool_click" data-tool-name="${esc(t.name)}" data-category="${esc(t.category)}" data-placement="guide_pick" data-commercial-type="${esc(commercial.type)}">Visit ${esc(t.name)} →</a> <a href="/tool/${t.slug}/" style="margin-left:12px;font-size:13px;">Details</a></p>
   </div>`; }).join('')}
+  ${g.checklist ? `<h2 style="font-size:20px;margin-top:26px;">Run a small, repeatable evaluation</h2><ol style="padding-left:24px;margin:16px 0;">${g.checklist.map(item => `<li style="margin:10px 0;">${esc(item)}</li>`).join('')}</ol>` : ''}
   <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:18px;margin:24px 0;">
     <p style="font-weight:600;font-size:14.5px;">📬 Get guides like this in your inbox</p>
     <form action="https://buttondown.com/api/emails/embed-subscribe/fintechai" method="post" class="bd-form" data-newsletter-placement="guide_inline" style="display:flex;gap:8px;margin-top:10px;">
