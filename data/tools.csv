@@ -1,4 +1,5 @@
 name,url,category,pricing,short_description,target_users,verify_status
+DDScore,https://www.ddscore.ai/,Research & Analysis,Free analysis available,"AI-assisted first-pass due diligence for private companies. Cross-checks company materials and external research to surface inconsistencies and evidence gaps for follow-up.",Venture investors / founders / accelerators,pending
 AlphaSense,https://www.alpha-sense.com,Research & Analysis,Enterprise,"AI-powered market intelligence platform searching millions of research documents, filings and earnings transcripts.",Institutional analysts,pending
 Hebbia,https://www.hebbia.ai,Research & Analysis,Enterprise,"AI agent platform (Matrix) for deep document analysis across filings, decks and data rooms.",Hedge funds / PE / IB,pending
 Kensho,https://kensho.com,Research & Analysis,Enterprise,"S&P Global's AI unit: NLP, transcription and entity-linking for financial data.",Institutions / data teams,pending
