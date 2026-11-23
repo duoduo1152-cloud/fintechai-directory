@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SITE = {
-  domain: 'https://fintechai.directory',
+  domain: 'https://www.fintechai.directory',
   name: 'FintechAI Directory',
   tagline: 'AI Tools for Finance, Curated by Finance Professionals',
   description: 'The professional directory of AI tools for finance — research, trading, risk, compliance, wealth management and more. Curated and reviewed by finance industry insiders.',
